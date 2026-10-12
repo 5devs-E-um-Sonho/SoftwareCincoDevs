@@ -99,7 +99,7 @@ body{
         padding: 30px;
         border-radius: 12px;
         border: 1px solid #292936;
-        transition: transform 0.3s, border-color 0.3s;
+        transition: border-color 0.3s;
     }
     
     .card:hover{
