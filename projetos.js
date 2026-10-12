@@ -11,7 +11,7 @@ let currentIndex = 0;
 
 const itemsPerPage = 3;
 const totalItens = cards.length;
-const autoPlayDelay = 1000;
+const autoPlayDelay = 3000; // Aumentado para 3 segundos (1s é muito rápido para autoplay)
 let autoPlayTimer = null;
 
 // --- Auto Play ---
@@ -69,11 +69,11 @@ function touchEnd() {
 
     const moveBy = currentTranslate - prevTranslate;
 
-    // Se arrastou para a esquerda o suficiente, avança
+    // Se arrastou para a esquerda o suficiente, avança 3 itens
     if (moveBy < -100 && currentIndex + itemsPerPage < totalItens) {
         currentIndex += itemsPerPage;
     }
-    // Se arrastou para a direita o suficiente, recua (corrigido a condição)
+    // Se arrastou para a direita o suficiente, recua 3 itens
     else if (moveBy > 100 && currentIndex - itemsPerPage >= 0) {
         currentIndex -= itemsPerPage;
     }
@@ -91,17 +91,25 @@ function animation() {
     if (isDragging) requestAnimationFrame(animation);
 }
 
-
 function setSliderPosition() {
     track.style.transform = `translateX(${currentTranslate}px)`;
 }
 
+// --- Função Atualizada ---
 function setPositionByIndex() {
     if (cards.length === 0) return;
     
-    // Supondo que a largura a mover seja o tamanho do container visível ou dos cards
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    currentTranslate = -currentIndex * cardWidth;
+    // Pega a máscara (ou a área visível do container)
+    const mask = document.querySelector('.carrossel-mask') || section;
+    const maskWidth = mask.getBoundingClientRect().width;
+    
+    // Deslocamento da página = largura visível + gap entre cards (20px)
+    const pageShift = maskWidth + 20;
+    
+    // Índice do bloco (0 para os 3 primeiros, 1 para os 3 seguintes, etc)
+    const pageIndex = currentIndex / itemsPerPage;
+    
+    currentTranslate = -pageIndex * pageShift;
     prevTranslate = currentTranslate;
     
     track.style.transition = 'transform 0.4s ease-out';
