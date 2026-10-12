@@ -14,30 +14,30 @@ const totalItens = cards.length;
 const autoPlayDelay = 1000;
 let autoPlayTimer = null;
 
-//---Auto plat---
-function startAutoPlay(){
+// --- Auto Play ---
+function startAutoPlay() {
     stopAutoPlay();
     autoPlayTimer = setInterval(() => {
-    if(currentIndex + itemsPerPage < totalItens){
-        currentIndex += itemsPerPage;
-    } else{
-        currentIndex = 0;
-    }
-    setPositionByIndex();
-}, autoPlayDelay);}
+        if (currentIndex + itemsPerPage < totalItens) {
+            currentIndex += itemsPerPage;
+        } else {
+            currentIndex = 0;
+        }
+        setPositionByIndex();
+    }, autoPlayDelay);
+}
 
-function stopAutoPlay(){
+function stopAutoPlay() {
     if (autoPlayTimer) clearInterval(autoPlayTimer);
 }
 
-//pausa quando passar por cima do carrossel
-
-section.addEventListener('mouseenter', stopAutoPlay)
-section.addEventListener('mouseleave', () =>{
-    if(!isDragging) startAutoPlay();
+// Pausa no hover
+section.addEventListener('mouseenter', stopAutoPlay);
+section.addEventListener('mouseleave', () => {
+    if (!isDragging) startAutoPlay();
 });
 
-//eventos de arraste
+// Eventos de arraste
 track.addEventListener('mousedown', touchStart);
 track.addEventListener('mousemove', touchMove);
 track.addEventListener('mouseup', touchEnd);
@@ -47,35 +47,34 @@ track.addEventListener('touchstart', touchStart);
 track.addEventListener('touchmove', touchMove);
 track.addEventListener('touchend', touchEnd);
 
-function touchStart(event){
+function touchStart(event) {
     stopAutoPlay();
     isDragging = true;
     startX = getPositionX(event);
-    animationId = requetanimationFrame(animation);
-    track.style.transition ='none';
+    animationId = requestAnimationFrame(animation);
+    track.style.transition = 'none';
 }
 
-function touchMove(event){
+function touchMove(event) {
     if (!isDragging) return;
     const currentX = getPositionX(event);
     const diff = currentX - startX;
     currentTranslate = prevTranslate + diff;
 }
 
-function touchEnd(){
+function touchEnd() {
     if (!isDragging) return;
     isDragging = false;
     cancelAnimationFrame(animationId);
 
     const moveBy = currentTranslate - prevTranslate;
 
-
-// se arrastou para esquerda o suficiente avança 3 itens
+    // Se arrastou para a esquerda o suficiente, avança
     if (moveBy < -100 && currentIndex + itemsPerPage < totalItens) {
-    currentIndex += itemsPerPage;
+        currentIndex += itemsPerPage;
     }
-// se arrastou para direita o suficiente avança 3 itens
-    else if (moveBy > 100 && currentIndex + itemsPerPage >= 0) {
+    // Se arrastou para a direita o suficiente, recua (corrigido a condição)
+    else if (moveBy > 100 && currentIndex - itemsPerPage >= 0) {
         currentIndex -= itemsPerPage;
     }
 
@@ -83,15 +82,31 @@ function touchEnd(){
     startAutoPlay();
 }
 
-function getPositionX(event){
+function getPositionX(event) {
     return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
 }
 
-function animation(){
+function animation() {
     setSliderPosition();
-    if(isDragging) requestAnimationFrame(animation);
+    if (isDragging) requestAnimationFrame(animation);
 }
 
-function setSliderPosition(){
-    track.style.transform = `translateX(${currentTranlate}`)
+
+function setSliderPosition() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
 }
+
+function setPositionByIndex() {
+    if (cards.length === 0) return;
+    
+    // Supondo que a largura a mover seja o tamanho do container visível ou dos cards
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    currentTranslate = -currentIndex * cardWidth;
+    prevTranslate = currentTranslate;
+    
+    track.style.transition = 'transform 0.4s ease-out';
+    setSliderPosition();
+}
+
+// Iniciar o carrossel
+startAutoPlay();
