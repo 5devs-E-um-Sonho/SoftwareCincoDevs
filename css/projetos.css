@@ -90,14 +90,14 @@ body{
     }
     
     .card{
-        min-width: calc((100% - 40px)/3);
+        flex: 0 0 calc((100% - 40px) / 3);
+        min-width: calc((100% - 40px) / 3);
         box-sizing: border-box;
-        flex: 1;
         background-color: #191922;
         padding: 30px;
         border-radius: 12px;
-        border:  1px solid #292936;
-        transition: 0.3s;
+        border: 1px solid #292936;
+        transition: transform 0.3s, border-color 0.3s;
     }
     
     .card:hover{
