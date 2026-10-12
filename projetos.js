@@ -95,18 +95,19 @@ function setSliderPosition() {
     track.style.transform = `translateX(${currentTranslate}px)`;
 }
 
-// --- Função Atualizada ---
+
 function setPositionByIndex() {
     if (cards.length === 0) return;
     
-    // Pega a máscara (ou a área visível do container)
-    const mask = document.querySelector('.carrossel-mask') || section;
-    const maskWidth = mask.getBoundingClientRect().width;
+    // Obtém o elemento que contém os cards e a sua largura interna
+    const container = document.querySelector('.carrossel-mask') || section;
+    const containerWidth = container.getBoundingClientRect().width;
     
-    // Deslocamento da página = largura visível + gap entre cards (20px)
-    const pageShift = maskWidth + 20;
+    // Calcula a largura exata de 1 card + o seu gap relativo
+    // (A translação exata para saltar 3 cards é a própria largura total visível do container)
+    const pageShift = containerWidth;
     
-    // Índice do bloco (0 para os 3 primeiros, 1 para os 3 seguintes, etc)
+    // Calcula o índice do bloco de 3 em 3 (0 para os cards 1-3, 1 para os cards 4-6)
     const pageIndex = currentIndex / itemsPerPage;
     
     currentTranslate = -pageIndex * pageShift;
@@ -115,6 +116,7 @@ function setPositionByIndex() {
     track.style.transition = 'transform 0.4s ease-out';
     setSliderPosition();
 }
+
 
 // Iniciar o carrossel
 startAutoPlay();
