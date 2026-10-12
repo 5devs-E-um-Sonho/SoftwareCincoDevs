@@ -65,14 +65,16 @@ body{
     /*============*/
     
     .projetos-secao{
-        background-color: #0f0f14;
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        margin: 10px auto;
-        overflow: hidden;
-        padding:  20px 0;
-        user-select: none;
+       background-color: #0f0f14;
+    position: relative;
+    width: 90%;             
+    max-width: 1300px;      
+    margin: 40px auto;      
+    padding: 20px;         
+    border-radius: 16px;
+    overflow: hidden;
+    user-select: none;
+    box-sizing: border-box;
     }
     
     .projetos{
