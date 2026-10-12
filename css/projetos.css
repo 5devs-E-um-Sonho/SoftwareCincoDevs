@@ -80,6 +80,7 @@ body{
         gap: 20px;
         cursor: grab;
         will-change: transform;
+        width: 100%;
     }
     .projetos:active{
         cursor: grabbing;
