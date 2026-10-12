@@ -63,8 +63,7 @@ body{
     /*============*/
     /*  PROJETOS  */
     /*============*/
-    
-.projetos-secao {
+  .projetos-secao {
     background-color: #0f0f14;
     position: relative;
     width: 90%;
@@ -94,7 +93,7 @@ body{
 }
 
 .card {
-    
+    /* Garante que exatamente 3 cards ocupem a largura útil */
     flex: 0 0 calc((100% - 40px) / 3);
     min-width: calc((100% - 40px) / 3);
     box-sizing: border-box;
@@ -103,6 +102,8 @@ body{
     border-radius: 12px;
     border: 1px solid #292936;
     transition: transform 0.3s, border-color 0.3s;
+    
+    /* Faz o card travar perfeitamente alinhado */
     scroll-snap-align: start;
 }
 
@@ -110,7 +111,6 @@ body{
     transform: translateY(-8px);
     border-color: #3b82f6;
 }
-    
     .numero-projeto{
         color: rgb(2, 88, 248);
         font-size: 14px;
