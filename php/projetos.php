@@ -19,11 +19,7 @@
             <a href="#">DESENVOLVIMENTO</a>
         </div><!--Nav-bar-->
 
-        <div class="propaganda">
-            <h1>Conheça nossos Projetos</h1>
-            <h2>Seu projeto pode fazer parte da nossa Histora</h2>
-        </div>
-
+        
 
     <section id="projetos" class="projetos-secao">
             <div class="projetos">
