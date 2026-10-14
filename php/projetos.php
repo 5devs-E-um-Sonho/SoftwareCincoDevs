@@ -1,4 +1,15 @@
-<!--Comit de Eduardo-->
+<?php
+    $jsonFile = 'projetosjson'; $projetos = [];
+
+    if (file_exists($jsonFile)){
+        $conteudo = file_get_contents($jsonFile);
+        $projetos = json_decode($conteudo, true) ?? [];
+    }
+
+    //vagas do carrossel
+    $totalCards =6;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,109 +33,42 @@
         
 
     <section id="projetos" class="projetos-secao">
-            <div class="projetos">
-                <div class="card">
-                    <div class="numero-projeto">
-                        01
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="dados-json.php">Ver Projeto</a>
-                </div><!--fim-->
+        <div class="projetos">
+            <?php for ($i = 0; $i < $totalCards; $i++): 
+            
+            $numeroFormatado = str_pad($i + 1, + 2, + '0', STR_PAD_LEFT);
+            $temProjeto = issest($projetos[$i]);
+            ?>
+            <div class="card">
+                <div class="numero-projeto"></div>
+            </div><!--card-->
 
-                <!-- PROJETO 2 -->
-                <div class="card">
-                    <div class="numero-projeto">
-                        02
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                       
-                    </div>
-                    <a href="meusite.html">Ver Projeto</a>
-                </div><!--fim-->
+            <?php
+                if ($temProjeto):?>
+                    <h3><?= htmlspecialchars($projetos[$i]['titulo']); ?> </h3>
+                    <p><?= htmlspecialchars($projetos[$i]['descricao']); ?> </p>
 
-                <!-- PROJETO 3 -->
-                <div class="card">
-                    <div class="numero-projeto">
-                        03
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="#">Ver Projeto</a>
-                </div><!--fim-->
-
-                <!--Projetp 4-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        04
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
-
-                 <!--Projetp 5-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        05
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
-
-                <!--Projetp 6-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        06
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
+            <div class="tecnologias">
+                <?php if (!empty($projetos[$i]['tecnologias']));?>
+                <?php foreach($projetos[$i]['tecnologias'] as tech):?>
+                <span> <?=  htmlspecialchars($tech);?></span> 
+                <?php endif; ?>
             </div>
-           
+
+            <a href="<?= htmlspecialchars($projetos[$i]['link']); ?>">Ver Projetos</a>
+
+            <?php else:?>
+            <h3>Faça Parte da Nossa Historia</h3>
+            <p>Seu projeto exibido aqui</p>
+
+            <div class="tecnologias">
+                <span>HTML</span>
+                <span>CSS</span>
+            </div>
+            <a href="dados-json.php">Ver Projetos</a>
+            <?php endif; ?>
+        </div><!--projetos-->       
+            <?php endfor; ?>
     </section>    
      <script src="../projetos.js"></script> 
 </body>
