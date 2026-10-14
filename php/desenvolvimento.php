@@ -21,7 +21,7 @@
 </head>
 <body>
         <div class="Nav-bar">
-        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+       <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         <a href="../index">INICIO</a>
         <a href="../php/orcamentos.php">ORÇAMENTO</a>
         <a href="#">FINANCEIRO</a>
