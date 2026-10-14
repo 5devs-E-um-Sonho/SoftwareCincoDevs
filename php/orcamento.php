@@ -67,7 +67,8 @@ $orcamentos = json_decode($conteudoJson, true);
             <a href="../juridico.php">JURIDICO</a>
             <a href="../projetos.php">PROJETOS</a>
             <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
-        </div> <!--Nav-bar-->
+        </div>
+        <!--Nav-bar-->
     </header>
 
     <!--solicitacion de projecto-->
@@ -83,34 +84,41 @@ $orcamentos = json_decode($conteudoJson, true);
             <div class="card">
                 <form action="" method="POST">
 
-                    <div class="item">
-                        <label for="email">Email*</label>
-                        <input type="email" class="inputs" name="email" required>
+                    <div class="linha">
+                        <div class="item">
+                            <label for="empresa">Empresa*</label>
+                            <input type="text" class="inputs" name="empresa" required>
+                        </div>
+
+                        <div class="item">
+                            <label for="email">Email*</label>
+                            <input type="email" class="inputs" name="email" required>
+                        </div>
                     </div>
 
-                    <div class="item">
-                        <label for="telefone">Numero de Telefone</label>
-                        <input type="tel" class="inputs" name="telefone" required>
+
+                    <div class="linha">
+                        <div class="item">
+                            <label for="telefone">Numero de Telefone</label>
+                            <input type="tel" class="inputs" name="telefone" required>
+                        </div>
+
+                        <div class="item">
+                            <label for="responsavel">Responsavel*</label>
+                            <input type="text" class="inputs" name="responsavel" required>
+                        </div>
                     </div>
 
-                    <div class="item">
-                        <label for="empresa">Empresa*</label>
-                        <input type="text" class="inputs" name="empresa" required>
-                    </div>
+                    <div class="linha">
+                        <div class="item">
+                            <label for="prazo">Prazo/Deadline</label>
+                            <input type="text" class="inputs" name="prazo" required>
+                        </div>
 
-                    <div class="item">
-                        <label for="responsavel">Responsavel*</label>
-                        <input type="text" class="inputs" name="responsavel" required>
-                    </div>
-
-                    <div class="item">
-                        <label for="prazo">Prazo/Deadline</label>
-                        <input type="text" class="inputs" name="prazo" required>
-                    </div>
-
-                    <div class="item">
-                        <label for="nomeProjeto">Nome Do Projeto*</label>
-                        <input type="text" class="inputs" name="nomeProjeto" required>
+                        <div class="item">
+                            <label for="nomeProjeto">Nome Do Projeto*</label>
+                            <input type="text" class="inputs" name="nomeProjeto" required>
+                        </div>
                     </div>
 
                     <div class="item">
@@ -122,19 +130,20 @@ $orcamentos = json_decode($conteudoJson, true);
                 </form>
             </div>
 
-        </section> <!--solicitacao-->
+        </section>
+        <!--solicitacao-->
 
         <section class="solicitacoes">
             <h1>SOLICITAÇOES ENVIADAS:</h1>
             <div class="solicitadas">
                 <?php foreach ($orcamentos as $orcamento) { ?>
-                    <div class="solicitacao">
-                        <h2> <?= $nomeProjeto ?> </h2>
-                        <p> <?= $empresa ?> </p>
-                        <p> <?= $email ?> </p>
-                        <p> <?= $prazo ?> </p>
-                        <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
-                    </div>
+                <div class="solicitacao">
+                    <h2> <?= $nomeProjeto ?> </h2>
+                    <p> <?= $empresa ?> </p>
+                    <p> <?= $email ?> </p>
+                    <p> <?= $prazo ?> </p>
+                    <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
+                </div>
                 <?php } ?>
             </div>
 
