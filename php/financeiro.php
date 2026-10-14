@@ -1,7 +1,7 @@
 <!-- COMMIT FEITO POR DANIEL -->
 
 <?php 
-    
+require_once "orcamento.php";   
 if (isset($_POST["pagar"])) 
 //VERIFICA SE(if) O VALOR EXISTE/FOI PAGO(isset)
 {   
