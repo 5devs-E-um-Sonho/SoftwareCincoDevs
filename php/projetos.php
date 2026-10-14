@@ -1,5 +1,5 @@
 <?php
-    $jsonFile = 'projetosjson'; $projetos = [];
+    $jsonFile = 'projetos.json'; $projetos = [];
 
     if (file_exists($jsonFile)){
         $conteudo = file_get_contents($jsonFile);
@@ -30,46 +30,44 @@
             <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
         </div><!--Nav-bar-->
 
-        
 
     <section id="projetos" class="projetos-secao">
         <div class="projetos">
             <?php for ($i = 0; $i < $totalCards; $i++): 
-            
-            $numeroFormatado = str_pad($i + 1, + 2, + '0', STR_PAD_LEFT);
-            $temProjeto = issest($projetos[$i]);
+                $numeroFormatado = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
+                $temProjeto = isset($projetos[$i]);
             ?>
-            <div class="card">
-                <div class="numero-projeto"></div>
-            </div><!--card-->
+                <div class="card">
+                    <div class="numero-projeto"><?= $numeroFormatado; ?></div>
 
-            <?php
-                if ($temProjeto):?>
-                    <h3><?= htmlspecialchars($projetos[$i]['titulo']); ?> </h3>
-                    <p><?= htmlspecialchars($projetos[$i]['descricao']); ?> </p>
+                    <?php if ($temProjeto): ?>
+                        <h3><?= htmlspecialchars($projetos[$i]['titulo'] ?? ''); ?></h3>
+                        <p><?= htmlspecialchars($projetos[$i]['descricao'] ?? ''); ?></p>
 
-            <div class="tecnologias">
-                <?php if (!empty($projetos[$i]['tecnologias']));?>
-                <?php foreach($projetos[$i]['tecnologias'] as tech):?>
-                <span> <?=  htmlspecialchars($tech);?></span> 
-                <?php endif; ?>
-            </div>
+                        <div class="tecnologias">
+                            <?php if (!empty($projetos[$i]['tecnologias']) && is_array($projetos[$i]['tecnologias'])): ?>
+                                <?php foreach($projetos[$i]['tecnologias'] as $tech): ?>
+                                    <span><?= htmlspecialchars($tech); ?></span> 
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
 
-            <a href="<?= htmlspecialchars($projetos[$i]['link']); ?>">Ver Projetos</a>
+                        <a href="<?= htmlspecialchars($projetos[$i]['link'] ?? '#'); ?>">Ver Projeto</a>
 
-            <?php else:?>
-            <h3>Faça Parte da Nossa Historia</h3>
-            <p>Seu projeto exibido aqui</p>
+                    <?php else: ?>
+                        <h3>Faça Parte da Nossa História</h3>
+                        <p>Seu projeto exibido aqui</p>
 
-            <div class="tecnologias">
-                <span>HTML</span>
-                <span>CSS</span>
-            </div>
-            <a href="dados-json.php">Ver Projetos</a>
-            <?php endif; ?>
-        </div><!--projetos-->       
+                        <div class="tecnologias">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <a href="dados-json.php">Ver Projetos</a>
+                    <?php endif; ?>
+                </div><!-- .card -->
             <?php endfor; ?>
-    </section>    
+        </div><!-- .projetos -->       
+    </section>
      <script src="../projetos.js"></script> 
 </body>
 </html>
