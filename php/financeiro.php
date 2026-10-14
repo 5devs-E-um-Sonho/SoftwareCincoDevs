@@ -39,13 +39,13 @@ $orcamentos = json_decode($conteudoJson, true);
 <body>
     
     <div class="Nav-bar"><!--Nav-bar-->
-        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-        <a href="index.html">INICIO</a>
-        <a href="solicitar_projeto.html">ORÇAMENTO</a>
-        <a href="financeiro.php">FINANCEIRO</a>
-        <a href="juridico.php">JURIDICO</a>
-        <a href="#">PROJETOS</a>
-        <a href="#">DESENVOLVIMENTO</a>
+         <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <a href="../index.php"></a>
+            <a href="orcamentos.php">ORÇAMENTO</a>
+            <a href="financiero.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="projetos.php">PROJETOS</a>
+            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
     </div>
 
     <!-- Cabeçalho principal -->

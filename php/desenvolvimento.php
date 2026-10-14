@@ -21,13 +21,13 @@
 </head>
 <body>
         <div class="Nav-bar">
-       <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-        <a href="../index">INICIO</a>
-        <a href="../php/orcamentos.php">ORÇAMENTO</a>
-        <a href="#">FINANCEIRO</a>
-        <a href="..php/juridico.php">JURIDICO</a>
-        <a href="../php/projetos.php">PROJETOS</a>
-        <a href="../php/desenvolvimento.php">DESENVOLVIMENTO</a>
+            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <a href="../index.php"></a>
+            <a href="orcamentos.php">ORÇAMENTO</a>
+            <a href="financiero.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="projetos.php">PROJETOS</a>
+            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
 
     <div class="desenvolver">
