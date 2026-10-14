@@ -12,7 +12,7 @@
         <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
          <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php"></a>
-            <a href="orcamentos.php">ORÇAMENTO</a>
+            <a href="orcamento.php">ORÇAMENTO</a>
             <a href="financeiro.php">FINANCEIRO</a>
             <a href="juridico.php">JURIDICO</a>
             <a href="projetos.php">PROJETOS</a>
