@@ -74,7 +74,7 @@
                         <span>CSS</span>
                         
                     </div>
-                    <a href="idade-get.php">Ver Projeto</a>
+                    <a href="#">Ver Projeto</a>
                 </div><!--fim-->
 
                 <!--Projetp 4-->
@@ -82,9 +82,9 @@
                     <div class="numero-projeto">
                         04
                     </div>
-                    <h3>Cadastros de Produtos</h3>
+                    <h3>Faça parte Da Nossa Historia</h3>
                     <p>
-                       Aula de persistencia de dados
+                    Seu projeto exibido aqui!
                     </p>
                     <div class="tecnologias">
                         <span>HTML</span>
@@ -99,9 +99,9 @@
                     <div class="numero-projeto">
                         05
                     </div>
-                    <h3>Cadastros de Produtos</h3>
+                    <h3>Faça parte Da Nossa Historia</h3>
                     <p>
-                       Aula de persistencia de dados
+                    Seu projeto exibido aqui!
                     </p>
                     <div class="tecnologias">
                         <span>HTML</span>
@@ -116,9 +116,9 @@
                     <div class="numero-projeto">
                         06
                     </div>
-                    <h3>Cadastros de Produtos</h3>
+                    <h3>Faça parte Da Nossa Historia</h3>
                     <p>
-                       Aula de persistencia de dados
+                    Seu projeto exibido aqui!
                     </p>
                     <div class="tecnologias">
                         <span>HTML</span>
