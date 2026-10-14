@@ -31,32 +31,7 @@
 
 <!--===============================================================================================================================-->
 
-        <section id="sobre" class="sobre">
-            <div class="titulo-secao">
-                <p>Conheça Um Pouco dos nossos projetos</p>
-                <h2>Sobre Nos</h2>
-            </div>
-            <div class="sobre-conteudo">
-                <div class="sobre-texto">
-                    <p>
-                        Empresa focada em Desenvolvimento Web, Landing Page de alto Padrão, Ia e Gestão
-                    </p>
-                    <p>
-                        Obejetivo principal usar IA para viabilizar sistemas, segurança e desenvolvimentos Webs.
-                    </p>
-                </div>
-                <div class="habilidades">
-                    <div class="habilidade">
-                        <h3>HTML</h3>
-                        <p>Estruturaçao de paginas web.</p>
-                    </div>
-                    <div class="habilidade">
-                        <h3>CSS</h3>
-                        <p>Estilizaçao e criaçao de interface.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
 <!--===============================================================================================================================-->
 
