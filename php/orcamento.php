@@ -12,18 +12,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $novoOrcamento = [
-        $responsavel => "responsavel",
-        $empresa => "empresa",
-        $telefone => "telefone",
-        $email => "email",
-        $nomeProjeto => "nomeProjeto",
-        $projeto => "projeto",
-        $prazo => "prazo"
+        "responsavel" => $responsavel,
+        "telefone" => $telefone,
+        "email" => $email,
+        "empresa" => $empresa,
+        "nomeProjeto" => $nomeProjeto,
+        "projeto" => $projeto,
+        "prazo" => $prazo
 
     ];
-    //abrir/ler arquivo json
-    $conteudoJson = file_get_contents(__DIR__ . "orcamento.json");
 
+    //abrir/ler arquivo json
+    $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
+
+    $orcamentos = json_decode($conteudoJson, true);
     //adicionar cadastro
     $orcamentos[] = $novoOrcamento;
 
@@ -34,14 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     //salvar em json
-    file_put_contents(__DIR__ . "orcamento.json", $jsonAtualizado);
+    file_put_contents(__DIR__ . "/orcamento.json", $jsonAtualizado);
 
-    //le o arquivo json
-    $conteudoJson = file_get_contents(__DIR__ . "orcamento.json");
-    $orcamentos = json_decode($conteudoJson, true);
 }
 
-$conteudoJson = file_get_contents(__DIR__ . "orcamento.json");
+    //le o arquivo json
+$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
 $orcamentos = json_decode($conteudoJson, true);
 
 ?>
@@ -53,20 +53,20 @@ $orcamentos = json_decode($conteudoJson, true);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitaçao De Projeto</title>
-    <link rel="stylesheet" href="../css/orcamento.css">
+    <link rel="stylesheet" href="css/orcamento.css">
 </head>
 
 <body>
 
     <header>
         <div class="Nav-bar">
-            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
-            <a href="orcamento.php">ORÇAMENTO</a>
-            <a href="financeiro.php">FINANCEIRO</a>
-            <a href="juridico.php">JURIDICO</a>
-            <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
+            <a href="orcamentos.php">ORÇAMENTO</a>
+            <a href="../financiero.php">FINANCEIRO</a>
+            <a href="../juridico.php">JURIDICO</a>
+            <a href="../projetos.php">PROJETOS</a>
+            <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
         </div>
         <!--Nav-bar-->
     </header>
@@ -82,7 +82,7 @@ $orcamentos = json_decode($conteudoJson, true);
             </div>
 
             <div class="card">
-                <form action="" method="POST">
+                <form method="POST">
 
                     <div class="linha">
                         <div class="item">
@@ -137,14 +137,15 @@ $orcamentos = json_decode($conteudoJson, true);
             <h1>SOLICITAÇOES ENVIADAS:</h1>
             <div class="solicitadas">
                 <?php foreach ($orcamentos as $orcamento) { ?>
-                <div class="solicitacao">
-                    <h2> <?= $nomeProjeto ?> </h2>
-                    <p> <?= $empresa ?> </p>
-                    <p> <?= $email ?> </p>
-                    <p> <?= $prazo ?> </p>
-                    <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
-                </div>
+                    <div class="solicitacao">
+                        <h2>NOME DO PROJETO: <?= $orcamento["nomeProjeto"] ?> </h2>
+                        <p>EMPRESA: <?= $orcamento["empresa"] ?> </p>
+                        <p>EMAIL DE CONTATO: <?= $orcamento["email"] ?> </p>
+                        <p>PRAZO: <?= $orcamento["prazo"] ?> </p>
+                        <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
+                    </div>
                 <?php } ?>
+
             </div>
 
         </section>
@@ -152,7 +153,7 @@ $orcamentos = json_decode($conteudoJson, true);
 
     <footer>
         <p>
-            DESENVOLVIDO POR <a href="https://jose755.devlook.xyz">JOSE OROPESA</a>
+            DESENVOLVIDO POR <a href="https://jose755.devlook.xyz">CINCO DEVS </a>
         </p>
         <p>
             HTML + CSS + PHP + JSON
