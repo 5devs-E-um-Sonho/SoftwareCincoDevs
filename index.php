@@ -12,7 +12,7 @@
         <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         <a href="index.php">INICIO</a>
         <a href="php/orcamentos.php">ORÇAMENTO</a>
-        <a href="php/ financeiro.php">FINANCEIRO</a>
+        <a href="php/financeiro.php">FINANCEIRO</a>
         <a href="php/juridico.php">JURIDICO</a>
         <a href="php/projetos.php">PROJETOS</a>
         <a href="php/desenvolvimento.php">DESENVOLVIMENTO</a>
@@ -38,7 +38,7 @@
             <div class="sobre-conteudo">
                 <div class="sobre-texto">
                     <p>
-                        24 anos, desenhista Mecanico, Desenhista á mão livre.
+                        Empresa focada em Desenvolvimento Web, Landing Page de alto Padrão, Ia e Gestão
                     </p>
                     <p>
                         Obejetivo principal usar IA para viabilizar sistemas, segurança e desenvolvimentos Webs.
