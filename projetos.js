@@ -11,7 +11,7 @@ let currentIndex = 0;
 
 const itemsPerPage = 3;
 const totalItens = cards.length;
-const autoPlayDelay = 3000; // Aumentado para 3 segundos (1s é muito rápido para autoplay)
+const autoPlayDelay = 3000; 
 let autoPlayTimer = null;
 
 // --- Auto Play ---
@@ -99,15 +99,14 @@ function setSliderPosition() {
 function setPositionByIndex() {
     if (cards.length === 0) return;
     
-    // Obtém o elemento que contém os cards e a sua largura interna
+ 
     const container = document.querySelector('.carrossel-mask') || section;
     const containerWidth = container.getBoundingClientRect().width;
     
-    // Calcula a largura exata de 1 card + o seu gap relativo
-    // (A translação exata para saltar 3 cards é a própria largura total visível do container)
+   
     const pageShift = containerWidth;
     
-    // Calcula o índice do bloco de 3 em 3 (0 para os cards 1-3, 1 para os cards 4-6)
+  
     const pageIndex = currentIndex / itemsPerPage;
     
     currentTranslate = -pageIndex * pageShift;
@@ -118,5 +117,5 @@ function setPositionByIndex() {
 }
 
 
-// Iniciar o carrossel
+
 startAutoPlay();
