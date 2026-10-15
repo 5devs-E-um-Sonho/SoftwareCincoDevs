@@ -70,7 +70,7 @@ $orcamentos = json_decode($conteudoJson, true);
         <a href="projetos.php">PROJETOS</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
-        <!-- Nav-bar -->
+
     </header>
 
     <!-- solicitacion de projecto -->
