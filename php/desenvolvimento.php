@@ -8,6 +8,21 @@ if(file_exists($arquivo)){
     $orcamentos = json_decode(file_get_contents($arquivo), true);
 }
 
+$arquivoProjetos = __DIR__ . "/projetos.json";
+
+$projetos = [];
+
+if(file_exists($arquivoProjetos)){
+    $projetos = json_decode(file_get_contents($arquivoProjetos), true);
+}
+if(count($projetos) == 0 && count($orcamentos) > 0){
+    foreach($orcamentos as $orcamento){
+        $orcamento["status"] = "pendente";
+        $projetos[] = $orcamento;
+    }
+    file_put_contents($arquivoProjetos, json_encode($projetos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
+
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
