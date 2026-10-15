@@ -83,7 +83,7 @@ $orcamentos = json_decode($conteudoJson, true);
             <input type="hidden" name="indice" value="<?= $indice; ?>">  
             
                 <label for="valor">INSIRA O VALOR: </label>
-                <input type="number" name="valor" value="<?= $indice; ?>"> 
+                <input type="number" name="valor"> 
 
                 <button class="submit" name="pagar"> PROPOR VALOR </button><br>
 
