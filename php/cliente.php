@@ -16,5 +16,12 @@
         <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
+
+
+    <div class="ala">
+        <div class="clientes">
+            
+        </div>
+    </div>
 </body>
 </html>
