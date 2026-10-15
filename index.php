@@ -45,48 +45,48 @@ $totalCards = 6;
 
 
     <section id="projetos" class="projetos-secao">
-        <div class="projetos">
-            <?php for ($i = 0; $i < $totalCards; $i++): ?>
-                <?php 
-                    // Formata o número do card: 01, 02, 03... 06
-                    $numeroFormatado = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
-                    
-                    // Verifica se existe um projeto concluído salvo nesta posição
-                    $temProjeto = isset($concluidos[$i]);
-                ?>
+    <div class="projetos">
+        <?php for ($i = 0; $i < $totalCards; $i++): ?>
+            <?php 
+                // Formata o número do card: 01, 02, 03... 06
+                $numeroFormatado = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
+                
+                // Verifica se existe um projeto concluído salvo nesta posição
+                $temProjeto = isset($concluidos[$i]);
+            ?>
 
-                <div class="card">
-                    <div class="numero-projeto">
-                        <?= $numeroFormatado; ?>
+            <div class="card">
+                <div class="numero-projeto">
+                    <?= $numeroFormatado; ?>
+                </div>
+
+                <?php if ($temProjeto): ?>
+                    <!-- CARD PREENCHIDO (PROJETO CONCLUÍDO NO DESENVOLVIMENTO) -->
+                    <h3><?= htmlspecialchars($concluidos[$i]['nomeProjeto'] ?? 'Projeto Finalizado'); ?></h3>
+                    <p><?= htmlspecialchars($concluidos[$i]['projeto'] ?? 'Projeto concluído pela equipe.'); ?></p>
+
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
                     </div>
 
-                    <?php if ($temProjeto): ?>
-                        <!-- CARD PREENCHIDO (PROJETO CONCLUÍDO NO DESENVOLVIMENTO) -->
-                        <h3><?= htmlspecialchars($concluidos[$i]['nomeProjeto'] ?? 'Projeto Finalizado'); ?></h3>
-                        <p><?= htmlspecialchars($concluidos[$i]['projeto'] ?? 'Projeto concluído pela equipe.'); ?></p>
+                    <a href="#">Ver Projeto</a>
 
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
+                <?php else: ?>
+                    <!-- CARD PADRÃO (ESPAÇO VAGO) -->
+                    <h3>Faça Parte da Nossa História</h3>
+                    <p>Seu projeto exibido aqui</p>
 
-                        <a href="#">Ver Projeto</a>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
 
-                    <?php else: ?>
-                        <!-- CARD PADRÃO (ESPAÇO VAGO) -->
-                        <h3>Faça Parte da Nossa História</h3>
-                        <p>Seu projeto exibido aqui</p>
-
-                        <div class="tecnologias">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-
-                        <a href="#">Ver Projetos</a>
-                    <?php endif; ?>
-                </div>
-            <?php endfor; ?>
-        </div>
-    </section>
+                    <a href="#">Ver Projetos</a>
+                <?php endif; ?>
+            </div>
+        <?php endfor; ?>
+    </div>
+</section>
 </body>
 </html>
