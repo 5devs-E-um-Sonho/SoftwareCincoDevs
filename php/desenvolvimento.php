@@ -1,6 +1,6 @@
 <?php 
 
-$arquivo = __DIR__ . "orcamento.json";
+$arquivo = __DIR__ . "/orcamento.json";
 
 $orcamentos = [];
 
