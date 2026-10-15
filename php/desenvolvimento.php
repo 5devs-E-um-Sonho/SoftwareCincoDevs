@@ -45,7 +45,7 @@ if(count($orcamentos) > $indice && $indice >= 0){
         file_put_contents($arquivo, json_encode($orcamentos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     };
 
-    $projetosConcluidos = __DIR__ . "concluidos.json";
+    $projetosConcluidos = __DIR__ . "/concluidos.json";
     $concluidos = [];
 
     foreach($orcamentos as $orcamento){
