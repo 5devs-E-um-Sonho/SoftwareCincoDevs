@@ -1,4 +1,4 @@
-COMITADO POR JOSE
+<!--COMITADO POR JOSE-->
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
