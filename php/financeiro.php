@@ -1,30 +1,32 @@
 <!-- COMMIT FEITO POR DANIEL -->
 
 <?php 
-require_once "orcamento.php";   
+    
 if (isset($_POST["pagar"])) 
 //VERIFICA SE(if) O VALOR EXISTE/FOI PAGO(isset)
 {   
     $indice = $_POST["indice"];
+    $valor = $_POST["valor"];
 
-    $conteudoJson = file_get_contents(__DIR__ . "/orcamentos.json");
+    $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
     $orcamentos = json_decode($conteudoJson, true);
 
     if (isset($orcamentos[$indice])) 
     //VERIFICA SE QUAL VALOR DEVE SER ALTERADO: FALSE PARA TRUE
     {
-        $orcamentos[$indice]["pago"] = true;
+    $orcamentos[$indice]["valor"] = $valor;    
+    $orcamentos[$indice]["pago"] = true;
 
         $jsonAtualizado = json_encode(
             $orcamentos,
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
         );
 
-        file_put_contents(__DIR__ . "/orcamentos.json",$jsonAtualizado);
+        file_put_contents(__DIR__ . "/orcamento.json",$jsonAtualizado);
     }
 } 
 
-$conteudoJson = file_get_contents(__DIR__ . "/orcamentos.json");
+$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
 $orcamentos = json_decode($conteudoJson, true);
 
 ?>
@@ -39,15 +41,15 @@ $orcamentos = json_decode($conteudoJson, true);
 </head>
 <body>
     
-        <div class="Nav-bar">
-            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+    <div class="Nav-bar"><!--Nav-bar-->
+         <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
             <a href="orcamento.php">ORÇAMENTO</a>
             <a href="financeiro.php">FINANCEIRO</a>
             <a href="juridico.php">JURIDICO</a>
             <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-        </div><!--Nav-bar-->
+            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
+    </div>
 
     <!-- Cabeçalho principal -->
      <div class="cabecalho">
@@ -61,7 +63,7 @@ $orcamentos = json_decode($conteudoJson, true);
     <?php 
         foreach($orcamentos as $indice => $orcamento){
     ?>
-        
+        <br>
         <p>Responsavel: <?= $orcamento["responsavel"]?></p>
         <p>Empresa: <?= $orcamento["empresa"]?></p>
         <p>Nome do projeto: <?= $orcamento["nomeProjeto"]?></p>
@@ -69,25 +71,30 @@ $orcamentos = json_decode($conteudoJson, true);
         <p>Telefone: <?= $orcamento["telefone"]?></p>
         <p>Email: <?= $orcamento["email"]?></p>
         <p>Prazo: <?= $orcamento["prazo"]?></p>
-
+     
+        
+        
         <?php 
             if($orcamento["pago"] == false){
         ?>
 
         <form method="POST">
+                
+            <input type="hidden" name="indice" value="<?= $indice; ?>">  
             
-            <input type="hidden" name="indice" value="<?= $indice; ?>">   
+                <label for="valor">INSIRA O VALOR: </label>
+                <input type="number" name="valor" value="<?= $indice; ?>"> 
 
-            <button class="submit" name="pagar">
-                O PAGAMENTO JÁ FOI EFETUADO: ATUALIZAR
-            </button>
-            
+                <button class="submit" name="pagar"> PROPOR VALOR </button><br>
+
+            <?php } else { ?>
+
+                <p>Valor: <?= $orcamento["valor"]?></p> <br>
+                
+            <?php }} ?>
         </form>
 
-        <?php }} ?>
-
         
-
     <?php if(empty($orcamentos)) { ?>
         
             <h2>Nenhum orçamento foi efetuado ainda</h2>

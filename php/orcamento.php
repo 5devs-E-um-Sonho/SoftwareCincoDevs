@@ -1,4 +1,4 @@
-<!--COMITADO POR JOSE-->
+COMITADO POR JOSE
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $projeto = $_POST["projeto"];
     $nomeProjeto = $_POST["nomeProjeto"];
     $prazo = $_POST["prazo"];
+    $pago = false;
 
 
     $novoOrcamento = [
@@ -18,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "empresa" => $empresa,
         "nomeProjeto" => $nomeProjeto,
         "projeto" => $projeto,
-        "prazo" => $prazo
+        "prazo" => $prazo,
+        "pago" => false
 
     ];
 
@@ -53,22 +55,25 @@ $orcamentos = json_decode($conteudoJson, true);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitaçao De Projeto</title>
-    <link rel="stylesheet" href="../css/orcamento.css">
+    <link rel="stylesheet" href="css/orcamento.css">
 </head>
 
 <body>
 
+    <header>
         <div class="Nav-bar">
-            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
-            <a href="orcamento.php">ORÇAMENTO</a>
-            <a href="financeiro.php">FINANCEIRO</a>
-            <a href="juridico.php">JURIDICO</a>
-            <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-        </div><!--Nav-bar-->
+            <a href="orcamentos.php">ORÇAMENTO</a>
+            <a href="../financiero.php">FINANCEIRO</a>
+            <a href="../juridico.php">JURIDICO</a>
+            <a href="../projetos.php">PROJETOS</a>
+            <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
+        </div>
+        Nav-bar-->
+    </header>
 
-    <!--solicitacion de projecto-->
+    solicitacion de projecto-->
 
     <main>
         <section class="solicitacao">
@@ -128,7 +133,7 @@ $orcamentos = json_decode($conteudoJson, true);
             </div>
 
         </section>
-        <!--solicitacao-->
+        solicitacao-->
 
         <section class="solicitacoes">
             <h1>SOLICITAÇOES ENVIADAS:</h1>
