@@ -26,7 +26,7 @@ $totalCards = 6;
         <a href="php/orcamento.php">ORÇAMENTO</a>
         <a href="php/financeiro.php">FINANCEIRO</a>
         <a href="php/juridico.php">JURIDICO</a>
-        <a href="php/cliente.php">PROJETOS</a>
+        <a href="php/cliente.php">CLIENTES</a>
         <a href="php/desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
    
