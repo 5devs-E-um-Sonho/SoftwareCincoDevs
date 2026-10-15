@@ -13,7 +13,7 @@
         <a href="orcamento.php">ORÇAMENTO</a>
         <a href="financeiro.php">FINANCEIRO</a>
         <a href="juridico.php">JURIDICO</a>
-        <a href="projetos.php">PROJETOS</a>
+        <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
 </body>

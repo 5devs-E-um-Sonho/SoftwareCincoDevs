@@ -17,13 +17,13 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
 
 <body>
 
-    <div class="Nav-bar">
+        <div class="Nav-bar">
         <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         <a href="../index.php">INICIO</a>
         <a href="orcamento.php">ORÇAMENTO</a>
         <a href="financeiro.php">FINANCEIRO</a>
         <a href="juridico.php">JURIDICO</a>
-        <a href="projetos.php">PROJETOS</a>
+        <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
 
