@@ -27,7 +27,7 @@
             <a href="financiero.php">FINANCEIRO</a>
             <a href="juridico.php">JURIDICO</a>
             <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
+            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
         </div><!--Nav-bar-->
 
 

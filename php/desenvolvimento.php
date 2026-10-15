@@ -58,7 +58,7 @@ $orcamentos = json_decode(file_get_contents($arquivo), true);
         <a href="#">FINANCEIRO</a>
         <a href="juridico.php">JURIDICO</a>
         <a href="projetos.php">PROJETOS</a>
-        <a href="#">DESENVOLVIMENTO</a>
+        <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
     
     <div class="desenvolver">
