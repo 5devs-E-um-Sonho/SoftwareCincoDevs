@@ -47,7 +47,7 @@ $orcamentos = json_decode(file_get_contents($arquivo), true);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="desenvolvimento.css">
+    <link rel="stylesheet" href="../css/desenvolvimento.css">
     <title>Document</title>
 </head>
 <body>
