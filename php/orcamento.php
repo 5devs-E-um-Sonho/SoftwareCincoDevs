@@ -70,10 +70,10 @@ $orcamentos = json_decode($conteudoJson, true);
             <a href="../projetos.php">PROJETOS</a>
             <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
         </div>
-        Nav-bar-->
+        <!-- Nav-bar -->
     </header>
 
-    solicitacion de projecto-->
+    <!-- solicitacion de projecto -->
 
     <main>
         <section class="solicitacao">
@@ -133,7 +133,7 @@ $orcamentos = json_decode($conteudoJson, true);
             </div>
 
         </section>
-        solicitacao-->
+        <!-- solicitacao -->
 
         <section class="solicitacoes">
             <h1>SOLICITAÇOES ENVIADAS:</h1>
