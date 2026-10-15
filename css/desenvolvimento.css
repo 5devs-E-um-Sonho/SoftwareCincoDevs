@@ -33,3 +33,33 @@ body{
     height: 200px;
     margin-left: -80px;
 }
+
+/* final nav bar */
+
+.desenvolver{
+    background-color: rgb(25, 37, 41);
+    width: 80%;
+    max-width: 800px;
+    margin: 40px 0 0 20px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 4, 255);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.desenvolver h1{
+    color: rgb(0, 4, 255);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.desenvolver p{
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.desenvolver:hover{
+    border-color: rgb(0, 4, 255);
+    transition: 0.3s;
+}

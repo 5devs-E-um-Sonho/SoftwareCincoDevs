@@ -43,7 +43,24 @@ if(count($orcamentos) > $indice && $indice >= 0){
         $orcamentos[$indice]["status"] = $status;
 
         file_put_contents($arquivo, json_encode($orcamentos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    };
+
+    $projetosConcluidos = __DIR__ . "/concluidos.json";
+    $concluidos = [];
+
+    foreach($orcamentos as $orcamento){
+        if($orcamento["status"] == "concluido"){
+            $concluidos[] = $orcamento;
+        }
     }
+
+     file_put_contents($projetosConcluidos, json_encode($concluidos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+
+
+
+
+
 }
 
 $orcamentos = json_decode(file_get_contents($arquivo), true);
@@ -56,21 +73,19 @@ $orcamentos = json_decode(file_get_contents($arquivo), true);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/desenvolvimento.css">
+    <link rel="stylesheet" href="desenvolvimento.css">
     <title>Document</title>
 </head>
 <body>
-
-
-    <div class="Nav-bar"><!--Nav-bar-->
-            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-            <a href="../index.php">INICIO</a>
-            <a href="orcamento.php">ORÇAMENTO</a>
-            <a href="financeiro.php">FINANCEIRO</a>
-            <a href="juridico.php">JURIDICO</a>
-            <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
-    </div>
+        <div class="Nav-bar">
+        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+        <a href="#">INICIO</a>
+        <a href="orcamentos.php">Orçamento</a>
+        <a href="#">FINANCEIRO</a>
+        <a href="juridico.php">JURIDICO</a>
+        <a href="projetos.php">PROJETOS</a>
+        <a href="#">DESENVOLVIMENTO</a>
+    </div><!--Nav-bar-->
     
     <div class="desenvolver">
         <h1>PROJETOS EM DESENVOLVIMENTO</h1>
