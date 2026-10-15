@@ -15,13 +15,22 @@ $projetos = [];
 if(file_exists($arquivoProjetos)){
     $projetos = json_decode(file_get_contents($arquivoProjetos), true);
 }
-if(count($projetos) == 0 && count($orcamentos) > 0){
-    foreach($orcamentos as $orcamento){
+foreach($orcamentos as $orcamento){
+    $encontrado = false;
+
+    foreach($projetos as $projeto){
+        if($projeto["nome"] == $orcamento["nome"]){
+            $encontrado = true;
+        }
+    }
+
+    if($encontrado == false){
         $orcamento["status"] = "pendente";
         $projetos[] = $orcamento;
     }
-    file_put_contents($arquivoProjetos, json_encode($projetos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
+
+file_put_contents($arquivoProjetos, json_encode($projetos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -47,20 +56,19 @@ $orcamentos = json_decode(file_get_contents($arquivo), true);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/desenvolvimento.css">
+    <link rel="stylesheet" href="desenvolvimento.css">
     <title>Document</title>
 </head>
 <body>
-    
         <div class="Nav-bar">
-            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-            <a href="../index.php">INICIO</a>
-            <a href="orcamento.php">ORÇAMENTO</a>
-            <a href="financeiro.php">FINANCEIRO</a>
-            <a href="juridico.php">JURIDICO</a>
-            <a href="projetos.php">PROJETOS</a>
-            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-        </div><!--Nav-bar-->
+        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+        <a href="#">INICIO</a>
+        <a href="orcamentos.php">Orçamento</a>
+        <a href="#">FINANCEIRO</a>
+        <a href="juridico.php">JURIDICO</a>
+        <a href="projetos.php">PROJETOS</a>
+        <a href="#">DESENVOLVIMENTO</a>
+    </div><!--Nav-bar-->
     
     <div class="desenvolver">
         <h1>PROJETOS EM DESENVOLVIMENTO</h1>
