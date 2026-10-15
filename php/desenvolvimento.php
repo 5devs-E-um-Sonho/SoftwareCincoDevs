@@ -79,7 +79,7 @@ $orcamentos = json_decode(file_get_contents($arquivo), true);
 <body>
 
     <div class="Nav-bar">
-        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+        <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         <a href="../index.php">INICIO</a>
         <a href="orcamento.php">ORÇAMENTO</a>
         <a href="financeiro.php">FINANCEIRO</a>
