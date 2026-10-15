@@ -1,5 +1,5 @@
 <?php 
-$arquivoConcluidos = __DIR__ . "concluidos.json";
+$arquivoConcluidos = __DIR__ . "/concluidos.json";
 $concluidos = [];
 
 if (file_exists($arquivoConcluidos)) {
