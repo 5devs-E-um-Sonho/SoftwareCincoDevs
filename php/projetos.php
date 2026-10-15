@@ -22,7 +22,7 @@ $totalCards = 6; // Mantém a quantidade de 6 cards na tela
 </head>
 <body>
 
-    <div class="Nav-bar">
+        <div class="Nav-bar">
             <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
             <a href="orcamento.php">ORÇAMENTO</a>
