@@ -1,4 +1,4 @@
-const track = document.querySelector('.projetos');
+const track = document.querySelector('.index');
 const section = document.querySelector('.projetos-secao');
 const cards = document.querySelectorAll('.card');
 
