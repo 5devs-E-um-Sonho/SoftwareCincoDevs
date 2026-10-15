@@ -1,3 +1,16 @@
+<?php 
+
+$arquivoConcluidos = __DIR__ . "/concluidos.json";
+$concluidos = [];
+
+if (file_exists($arquivoConcluidos)) {
+    $conteudo = file_get_contents($arquivoConcluidos);
+    $concluidos = json_decode($conteudo, true) ?? [];
+}
+
+$totalCards = 6; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,109 +46,48 @@
 
 
         <section id="projetos" class="projetos-secao">
-            <div class="projetos">
-                <div class="card">
-                    <div class="numero-projeto">
-                        01
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="dados-json.php">Ver Projeto</a>
-                </div><!--fim-->
+    <div class="projetos">
+        <?php for ($i = 0; $i < $totalCards; $i++): ?>
+            <?php 
+                // Formata o número do card: 01, 02, 03... 06
+                $numeroFormatado = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
+                
+                // Verifica se existe um projeto concluído salvo nesta posição
+                $temProjeto = isset($concluidos[$i]);
+            ?>
 
-                <!-- PROJETO 2 -->
-                <div class="card">
-                    <div class="numero-projeto">
-                        02
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                       
-                    </div>
-                    <a href="meusite.html">Ver Projeto</a>
-                </div><!--fim-->
+            <div class="card">
+                <div class="numero-projeto">
+                    <?= $numeroFormatado; ?>
+                </div>
 
-                <!-- PROJETO 3 -->
-                <div class="card">
-                    <div class="numero-projeto">
-                        03
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                       Seu projeto exibido aqui!
-                    </p>
+                <?php if ($temProjeto): ?>
+                    <!-- CARD PREENCHIDO (PROJETO CONCLUÍDO NO DESENVOLVIMENTO) -->
+                    <h3><?= htmlspecialchars($concluidos[$i]['nomeProjeto'] ?? 'Projeto Finalizado'); ?></h3>
+                    <p><?= htmlspecialchars($concluidos[$i]['projeto'] ?? 'Projeto concluído pela equipe.'); ?></p>
+
                     <div class="tecnologias">
                         <span>HTML</span>
                         <span>CSS</span>
-                        
                     </div>
+
                     <a href="#">Ver Projeto</a>
-                </div><!--fim-->
 
-                <!--Projetp 4-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        04
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
+                <?php else: ?>
+                    <!-- CARD PADRÃO (ESPAÇO VAGO) -->
+                    <h3>Faça Parte da Nossa História</h3>
+                    <p>Seu projeto exibido aqui</p>
+
                     <div class="tecnologias">
                         <span>HTML</span>
                         <span>CSS</span>
-                        
                     </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
 
-                 <!--Projetp 5-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        05
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
-
-                <!--Projetp 6-->
-                <div class="card">
-                    <div class="numero-projeto">
-                        06
-                    </div>
-                    <h3>Faça parte Da Nossa Historia</h3>
-                    <p>
-                    Seu projeto exibido aqui!
-                    </p>
-                    <div class="tecnologias">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        
-                    </div>
-                    <a href="cadastro.php">Ver Projeto</a>
-                </div><!--fim-->
+                    <a href="#">Ver Projetos</a>
+                <?php endif; ?>
             </div>
-           
-    </section>    
+        <?php endfor; ?>
+    </div>
+</section>
 </body>
 </html>
