@@ -73,10 +73,10 @@ $orcamentos = json_decode($conteudoJson, true);
             <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
             <a href="orcamentos.php">ORÇAMENTO</a>
-            <a href="../financiero.php">FINANCEIRO</a>
-            <a href="../juridico.php">JURIDICO</a>
-            <a href="../projetos.php">PROJETOS</a>
-            <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
+            <a href="financiero.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="projetos.php">PROJETOS</a>
+            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
         </div>
         <!--Nav-bar-->
     </header>
@@ -149,7 +149,7 @@ $orcamentos = json_decode($conteudoJson, true);
                 <?php if (isset($_GET["enviado"]) && $_GET["enviado"] == "1") { ?> 
                     <div class="resposta">
                         <p> SOLICITAÇÃO ENVIADA COM SUCESSO! </p>
-                        <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
+                        <a href="desenvolvimento.php" class="button-solicitacao">VER SITUAÇÃO</a>
                     </div>
                 <?php } ?>
 
