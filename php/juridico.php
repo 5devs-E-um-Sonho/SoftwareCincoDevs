@@ -18,14 +18,14 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
 <body>
 
         <div class="Nav-bar">
-        <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-        <a href="../index.php">INICIO</a>
-        <a href="orcamento.php">ORÇAMENTO</a>
-        <a href="financeiro.php">FINANCEIRO</a>
-        <a href="juridico.php">JURIDICO</a>
-        <a href="cliente.php">CLIENTES</a>
-        <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-    </div><!--Nav-bar-->
+            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <a href="../index.php">INICIO</a>
+            <a href="orcamento.php">ORÇAMENTO</a>
+            <a href="financeiro.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="projetos.php">PROJETOS</a>
+            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
+        </div><!--Nav-bar-->
 
     <!-- Cabeçalho Principal -->
     <header class="legal-header">
@@ -120,7 +120,7 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
 
     <footer class="legal-footer">
         <div class="container">
-            <p>&copy; 2026 Nome da Sua Empresa. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas.</p>
+            <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Realizado por Amanda Orlatei.</p>
         </div>
     </footer>
 
