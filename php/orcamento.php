@@ -1,6 +1,7 @@
 <!--COMITADO POR JOSE-->
 
 <?php
+$enviado = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $responsavel = $_POST["responsavel"];
     $empresa = $_POST["empresa"];
@@ -9,7 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $projeto = $_POST["projeto"];
     $nomeProjeto = $_POST["nomeProjeto"];
     $prazo = $_POST["prazo"];
-    $pago = false;
+    $indice = 0;
+
+
 
 
     $novoOrcamento = [
@@ -19,10 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "empresa" => $empresa,
         "nomeProjeto" => $nomeProjeto,
         "projeto" => $projeto,
-        "prazo" => $prazo,
-        "pago" => false
+        "prazo" => $prazo
 
     ];
+
+
+
+
 
     //abrir/ler arquivo json
     $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
@@ -39,10 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //salvar em json
     file_put_contents(__DIR__ . "/orcamento.json", $jsonAtualizado);
-
+    $enviado = true;
+    header("Location: orcamento.php?enviado=1");
+    exit;
 }
 
-    //le o arquivo json
+//le o arquivo json
 $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
 $orcamentos = json_decode($conteudoJson, true);
 
@@ -62,18 +70,18 @@ $orcamentos = json_decode($conteudoJson, true);
 
     <header>
         <div class="Nav-bar">
-        <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-        <a href="../index.php">INICIO</a>
-        <a href="orcamento.php">ORÇAMENTO</a>
-        <a href="financeiro.php">FINANCEIRO</a>
-        <a href="juridico.php">JURIDICO</a>
-        <a href="cliente.php">CLIENTES</a>
-        <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-    </div><!--Nav-bar-->
-
+            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <a href="../index.php">INICIO</a>
+            <a href="orcamento.php">ORÇAMENTO</a>
+            <a href="financeiro.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="cliente.php">CLIENTES</a>
+            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
+        </div>
+        <!--Nav-bar-->
     </header>
 
-    <!-- solicitacion de projecto -->
+    <!--solicitacion de projecto-->
 
     <main>
         <section class="solicitacao">
@@ -88,12 +96,12 @@ $orcamentos = json_decode($conteudoJson, true);
 
                     <div class="linha">
                         <div class="item">
-                            <label for="empresa">Empresa*</label>
+                            <label for="empresa" class="labelText">Empresa*</label>
                             <input type="text" class="inputs" name="empresa" required>
                         </div>
 
                         <div class="item">
-                            <label for="email">Email*</label>
+                            <label for="email" class="labelText">Email*</label>
                             <input type="email" class="inputs" name="email" required>
                         </div>
                     </div>
@@ -101,30 +109,30 @@ $orcamentos = json_decode($conteudoJson, true);
 
                     <div class="linha">
                         <div class="item">
-                            <label for="telefone">Numero de Telefone</label>
+                            <label for="telefone" class="labelText">Numero de Telefone</label>
                             <input type="tel" class="inputs" name="telefone" required>
                         </div>
 
                         <div class="item">
-                            <label for="responsavel">Responsavel*</label>
+                            <label for="responsavel" class="labelText">Responsavel*</label>
                             <input type="text" class="inputs" name="responsavel" required>
                         </div>
                     </div>
 
                     <div class="linha">
                         <div class="item">
-                            <label for="prazo">Prazo/Deadline</label>
+                            <label for="prazo" class="labelText">Prazo/Deadline</label>
                             <input type="text" class="inputs" name="prazo" required>
                         </div>
 
                         <div class="item">
-                            <label for="nomeProjeto">Nome Do Projeto*</label>
+                            <label for="nomeProjeto" class="labelText">Nome Do Projeto*</label>
                             <input type="text" class="inputs" name="nomeProjeto" required>
                         </div>
                     </div>
 
                     <div class="item">
-                        <label for="projeto">Descriçao do Projeto</label>
+                        <label for="projeto" class="labelText">Descriçao do Projeto</label>
                         <textarea name="projeto" id="Projeto" class="pedido" required></textarea>
                     </div>
 
@@ -133,18 +141,15 @@ $orcamentos = json_decode($conteudoJson, true);
             </div>
 
         </section>
-        <!-- solicitacao -->
+        <!--solicitacao-->
 
         <section class="solicitacoes">
-            <h1>SOLICITAÇOES ENVIADAS:</h1>
+
             <div class="solicitadas">
-                <?php foreach ($orcamentos as $orcamento) { ?>
-                    <div class="solicitacao">
-                        <h2>NOME DO PROJETO: <?= $orcamento["nomeProjeto"] ?> </h2>
-                        <p>EMPRESA: <?= $orcamento["empresa"] ?> </p>
-                        <p>EMAIL DE CONTATO: <?= $orcamento["email"] ?> </p>
-                        <p>PRAZO: <?= $orcamento["prazo"] ?> </p>
-                        <a href="projetos.php" class="button-solicitacao">VER SITUAÇÃO</a>
+                <?php if (isset($_GET["enviado"]) && $_GET["enviado"] == "1") { ?>
+                    <div class="resposta">
+                        <p> SOLICITAÇÃO ENVIADA COM SUCESSO! </p>
+                        <a href="desenvolvimento.php" class="button-solicitacao">VER SITUAÇÃO</a>
                     </div>
                 <?php } ?>
 
