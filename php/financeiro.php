@@ -54,53 +54,39 @@ $orcamentos = json_decode($conteudoJson, true);
     <!-- Cabeçalho principal -->
      <div class="cabecalho">
         <h1>FINANCEIRO</h1>
-        <p>Consulte os projetos que ainda aguardam confirmação de pagamento</p>
+        <p class="subtit">Consulte os projetos que ainda aguardam confirmação de pagamento</p>
     </div>
 
     <div class="orcamento">
-
         
-    <?php 
-        foreach($orcamentos as $indice => $orcamento){
-    ?>
-        <br>
-        <p>Responsavel: <?= $orcamento["responsavel"]?></p>
-        <p>Empresa: <?= $orcamento["empresa"]?></p>
-        <p>Nome do projeto: <?= $orcamento["nomeProjeto"]?></p>
-        <p>Projeto: <?= $orcamento["projeto"]?></p>
-        <p>Telefone: <?= $orcamento["telefone"]?></p>
-        <p>Email: <?= $orcamento["email"]?></p>
-        <p>Prazo: <?= $orcamento["prazo"]?></p>
-     
-        
-        
-        <?php 
-            if($orcamento["pago"] == false){
-        ?>
+            <?php foreach($orcamentos as $indice => $orcamento){?>
+            <div class="cards">
+                <br>
+                <p><span class="item"> Responsavel: </span><?= $orcamento["responsavel"]?></p>
+                <p><span class="item"> Empresa: </span><?= $orcamento["empresa"]?></p>
+                <p><span class="item"> Nome do projeto: </span><?= $orcamento["nomeProjeto"]?></p>
+                <p><span class="item"> Projeto: </span><?= $orcamento["projeto"]?></p>
+                <p><span class="item"> Telefone: </span><?= $orcamento["telefone"]?></p>
+                <p><span class="item"> Email: </span><?= $orcamento["email"]?></p>
+                <p><span class="item"> Prazo: </span><?= $orcamento["prazo"]?></p>
+                <?php if($orcamento["pago"] == false){?>
+            <form method="POST">
+                        <input type="hidden" name="indice" value="<?= $indice; ?>">
+             
+                        <input type="number" name="valor" min="0" step="0.01"> 
+                        <button class="submit" name="pagar"> PROPOR VALOR </button><br>
+                <?php } else { ?>
+                    <p><span class="item">Valor: </span><?= $orcamento["valor"]?></p> <br>
+            </div>
+                <?php }} ?>
+            </form>  
 
-        <form method="POST">
-                
-            <input type="hidden" name="indice" value="<?= $indice; ?>">  
-            
-                <label for="valor">INSIRA O VALOR: </label>
-                <input type="number" name="valor"> 
+            <?php if(empty($orcamentos)) { ?>
 
-                <button class="submit" name="pagar"> PROPOR VALOR </button><br>
+                    <h2>Nenhum orçamento foi efetuado ainda</h2>
 
-            <?php } else { ?>
-
-                <p>Valor: <?= $orcamento["valor"]?></p> <br>
-                
-            <?php }} ?>
-        </form>
-
-        
-    <?php if(empty($orcamentos)) { ?>
-        
-            <h2>Nenhum orçamento foi efetuado ainda</h2>
-        
-    <?php } ?>
-            
+            <?php } ?>
+           
     </div>
 </body>
 </html>
