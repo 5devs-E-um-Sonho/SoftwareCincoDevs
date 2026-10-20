@@ -18,7 +18,7 @@ body{
     display: flex;
     justify-content: space-around;
     gap: 30px;
-    
+    border: #00aeef;
 }
 
 .Nav-bar a{
@@ -94,9 +94,7 @@ body{
     height: auto;
     order: 2; 
 }
-hr{
-    background-color: #375bfc;
-}
+
 
 /*============*/
 /*  PROJETOS  */

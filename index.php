@@ -30,7 +30,6 @@ $totalCards = 6;
             <a href="php/cliente.php">CLIENTES</a>
             <a href="php/desenvolvimento.php">DESENVOLVIMENTO</a>
         </div>
-        <hr>
     </nav><!--Nav-bar-->
    
     <div class="apresentacao">
