@@ -94,10 +94,13 @@ body{
     height: auto;
     order: 2; 
 }
+hr{
+    color: #375bfc;
+}
 
 /*============*/
-    /*  PROJETOS  */
-    /*============*/
+/*  PROJETOS  */
+/*============*/
     
     .projetos-secao{
        background-color: #0f0f14;
