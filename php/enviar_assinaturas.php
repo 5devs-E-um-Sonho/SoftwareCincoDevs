@@ -18,7 +18,7 @@ $cabecalho = "From: amanda.orlatei.documentos@gmail.com";
 // PREPARA O LINK PARA O WHATSAPP COM MESAGEM PRONTO //
 
 $text_wpp = urlencode("Olá $cliente_nome, seu contrato no valor de R$$valor_orçamento foi gerado com sucesso. \nSegue o link para conferência e assinatura. ");
-$text_whatsapp = "https://api.whatsapp.com/send?phone=$cliente_numero&text=$text_wpp";
+$text_whatsapp = "https://api.whatsapp.com/send?phone=$cliente_numerotext=$text_wpp";
 
 ?>
 <!DOCTYPE html>

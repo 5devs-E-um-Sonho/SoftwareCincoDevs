@@ -1,3 +1,11 @@
+<?php
+$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
+$orcamentos = json_decode($conteudoJson, true);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +28,7 @@
 
     <div class="ala">
         <div class="clientes">
-            
+            <a href="enviar_assinaturas.php"></a>
         </div>
     </div>
 </body>
