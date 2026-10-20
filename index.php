@@ -10,7 +10,6 @@ if (file_exists($arquivoConcluidos)) {
 }
 
 $totalCards = 8 ; 
-$totalCards = 10;
 ?>
 
 <!DOCTYPE html>
