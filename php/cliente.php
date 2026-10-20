@@ -28,7 +28,7 @@ $orcamentos = json_decode($conteudoJson, true);
 
     <div class="ala">
         <div class="clientes">
-            <a href="enviar_assinaturas.php"></a>
+            <a href="enviar_assinaturas.php">Contrato</a>
         </div>
     </div>
 </body>
