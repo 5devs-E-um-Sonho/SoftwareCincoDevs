@@ -9,7 +9,7 @@ if (file_exists($arquivoConcluidos)) {
     $concluidos = json_decode($conteudo, true) ?? [];
 }
 
-$totalCards = 8; 
+$totalCards = 8 ; 
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +57,7 @@ $totalCards = 8;
                 
                 // Verifica se existe um projeto concluído salvo nesta posição
                 $temProjeto = isset($concluidos[$i]);
+                $totalCards ++;
             ?>
 
             <div class="card">
