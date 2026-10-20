@@ -92,6 +92,6 @@ $totalCards = 6;
         <?php endfor; ?>
     </div>
 </section>
-          <script src="projetos.js"></script>          
+                   
 </body>
 </html>
