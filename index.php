@@ -20,15 +20,17 @@ $totalCards = 6;
 </head>
 <body>
 
-    <div class="Nav-bar">
-        <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-        <a href="index.php">INICIO</a>
-        <a href="php/orcamento.php">ORÇAMENTO</a>
-        <a href="php/financeiro.php">FINANCEIRO</a>
-        <a href="php/juridico.php">JURIDICO</a>
-        <a href="php/cliente.php">CLIENTES</a>
-        <a href="php/desenvolvimento.php">DESENVOLVIMENTO</a>
-    </div><!--Nav-bar-->
+    <nav> 
+        <div class="Nav-bar">
+            <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <a href="index.php">INICIO</a>
+            <a href="php/orcamento.php">ORÇAMENTO</a>
+            <a href="php/financeiro.php">FINANCEIRO</a>
+            <a href="php/juridico.php">JURIDICO</a>
+            <a href="php/cliente.php">CLIENTES</a>
+            <a href="php/desenvolvimento.php">DESENVOLVIMENTO</a>
+        </div>
+    </nav><!--Nav-bar-->
    
     <div class="apresentacao">
         <img src="imgHtml/Gemini_Generated_Image_22akzh22akzh22ak__1_-removebg-preview.png" alt="">
