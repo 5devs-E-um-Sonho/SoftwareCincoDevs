@@ -57,7 +57,7 @@ $totalCards = 8 ;
                 
                 // Verifica se existe um projeto concluído salvo nesta posição
                 $temProjeto = isset($concluidos[$i]);
-                $totalCards +1;
+                
             ?>
 
             <div class="card">
@@ -88,6 +88,7 @@ $totalCards = 8 ;
                     </div>
 
                     <a href="#">Ver Projetos</a>
+                    $totalCards +1;
                 <?php endif; ?>
             </div>
         <?php endfor; ?>
