@@ -26,10 +26,19 @@ $text_whatsapp = "https://api.whatsapp.com/send?phone=$cliente_numerotext=$text_
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Visualização do Contrato Gerado</title>
 </head>
 <body style="font-family: arial, sans-serif; background-color: #f4f4f9; margin: 40px;">
     
-    
+    <h1><?= $cliente_doc ?></h1>
+    <h1><?= $cliente_email?></h1>
+    <h1><?= $cliente_nome ?></h1>
+    <h1><?= $cliente_numerotext ?></h1>
+    <h1><?= $cliente_telefone ?></h1>
+    <h1><?= $cliente_numerotext ?></h1>
+    <h1><?= $cliente_telefone ?></h1>
+
+
 </body>
 </html>
