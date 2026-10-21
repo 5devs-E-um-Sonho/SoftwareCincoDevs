@@ -33,14 +33,13 @@ body{
     margin-left: 700px;
     height:806px ;
     border-radius: 7px;
+    padding: 3px;
 }
 
 .termos
 {
     width: 600px;
     height: 800px;
-    margin-top: 3px;
-    margin-left: 3px;
     border-color: rgb(25, 37, 41);;
     background-color: white;
     color: black;
