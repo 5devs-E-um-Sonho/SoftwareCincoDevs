@@ -51,5 +51,10 @@ body{
 
 .test_ass{
     color: black;
+}
+
+.test_ass a{
+    color: black;
     text-decoration: none;
+    font-weight: bold;
 }
