@@ -33,8 +33,8 @@
         Garantindo Que as seguintes informações e valores pagos, sâo do meu conhecimento, <br>
         tambem é do conhecimento a assinatura desse documento, seu uso como um comprovante.
 
-        Assinado Empressa Credora: <?= $nomeDaSoft?>
-        Assinado Cliente:  <?= $responsavel ?>
+        <br>Assinado Empressa Credora: <?= $nomeDaSoft?>
+        <br>Assinado Cliente:  <?= $responsavel ?>
         
     </h2>
 
