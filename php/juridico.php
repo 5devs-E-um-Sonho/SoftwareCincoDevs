@@ -19,12 +19,6 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
 
         <div class="Nav-bar">
             <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
-            <a href="../index.php">INICIO</a>
-            <a href="orcamento.php">ORÇAMENTO</a>
-            <a href="financeiro.php">FINANCEIRO</a>
-            <a href="juridico.php">JURIDICO</a>
-            <a href="cliente.php">CLIENTES</a>
-            <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
         </div><!--Nav-bar-->
 
     <!-- Cabeçalho Principal -->
@@ -106,7 +100,7 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
                             <input type="hidden" name="cliente_doc" value="<?php echo $cliente_doc;?>"> 
                             <input type="hidden" name="valor_orçamento" value="<?php echo $valor_orçamento;?>">
                             
-                            <a href="enviar_assinatura.php">Ver Termos</a>
+                            <a href="enviar_assinaturas.php">Ver Termos</a>
                             
                         </form>
                     </div>
