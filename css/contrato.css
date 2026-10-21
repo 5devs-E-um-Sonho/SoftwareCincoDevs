@@ -30,6 +30,9 @@ body{
 {
     background-color: rgb(25, 37, 41);
     width: 602px;
+    margin-left: 700px;
+    height:802px ;
+    border-radius: 7px;
 }
 
 .termos
@@ -41,4 +44,5 @@ body{
     color: black;
     align-items: center;
     justify-content: center;
+    border-radius: 7px;
 }
