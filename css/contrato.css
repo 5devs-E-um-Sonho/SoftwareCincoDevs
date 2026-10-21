@@ -59,11 +59,11 @@ body{
     font-weight: bold;
 }
 
-.test_ass .h1_teste h1{
+.h1_teste a{
     color: green;
 }
 
-.h1_teste2
+.h1_teste2 a
 {
     color: red;
 }
