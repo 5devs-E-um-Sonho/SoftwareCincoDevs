@@ -3,7 +3,7 @@
     $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
     $orcamentos = json_decode($conteudoJson, true);
 
-    $nomeDaSoft = "Five Devs e UM Sonho";
+    $nomeDaSoft = "Five Devs e Um Sonho";
 
 ?>
 <!DOCTYPE html>
