@@ -19,7 +19,8 @@
         </div>
     </nav><!--Nav-bar-->
 
-    <div class="termos">
+    <div class="terms">
+            <div class="termos">
             <h1>Termos e condições</h1>
     <h2>
         A empresa <?= $nomeDaSoft?>, Garante que o uso das informações do contratante <?= $responsavel ?> são confidenciais, garantido seu armazenamento 
@@ -44,6 +45,7 @@
        <br> <a href="financeiro.php"> [ ] Aceito temos</a>
        <br> <a href="fince"> [ ] Quero um novo orçamento</a>
     </h1>
+    </div>
     </div>
 
   
