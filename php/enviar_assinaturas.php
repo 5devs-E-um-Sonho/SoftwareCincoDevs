@@ -39,8 +39,8 @@
     </h2>
 
     <h1>
-       <br> <a href="financeiro.php"> [] Aceito temos</a>
-       <br> <a href="fince"> [] Quero um novo orçamento</a>
+       <br> <a href="financeiro.php"> [ ] Aceito temos</a>
+       <br> <a href="fince"> [ ] Quero um novo orçamento</a>
     </h1>
 
   
