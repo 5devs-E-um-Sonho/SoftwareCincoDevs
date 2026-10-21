@@ -2,7 +2,6 @@ body{
     overflow-x: hidden;
     width: 100%;
     margin: 0;
-    text-decoration: none;
 }
 
 .Nav-bar{
@@ -29,4 +28,5 @@ body{
 
 a{
     color: brown;
+    text-decoration: none;
 }
