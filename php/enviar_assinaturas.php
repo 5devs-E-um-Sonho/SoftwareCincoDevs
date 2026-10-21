@@ -18,7 +18,9 @@
             <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         </div>
     </nav><!--Nav-bar-->
-    <h1>Termos e condições</h1>
+
+    <div class="termos">
+            <h1>Termos e condições</h1>
     <h2>
         A empresa <?= $nomeDaSoft?>, Garante que o uso das informações do contratante <?= $responsavel ?> são confidenciais, garantido seu armazenamento <br>
         e acesso somente ao pessoal autorizado. Informamos tambem que o contratante tem ate 3 edições no projeto sem adicional,<br>
@@ -42,6 +44,7 @@
        <br> <a href="financeiro.php"> [ ] Aceito temos</a>
        <br> <a href="fince"> [ ] Quero um novo orçamento</a>
     </h1>
+    </div>
 
   
 
