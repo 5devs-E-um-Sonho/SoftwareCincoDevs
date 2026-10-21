@@ -9,7 +9,7 @@ if (file_exists($arquivoConcluidos)) {
     $concluidos = json_decode($conteudo, true) ?? [];
 }
 
-$totalCards = 20 ; 
+$totalCards = 10; 
 ?>
 
 <!DOCTYPE html>
