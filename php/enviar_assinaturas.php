@@ -23,7 +23,8 @@
 
     <div class="terms">
         <div class="termos">
-            <h1>Termos e condições</h1>
+            <div class="test_ass">
+                <h1>Termos e condições</h1>
                 <h2>
                     A empresa <?= $nomeDaSoft?>, Garante que o uso das informações do contratante <?= $responsavel ?> são confidenciais, garantido seu armazenamento 
                     e acesso somente ao pessoal autorizado. Informamos tambem que o contratante tem ate 3 edições no projeto sem adicional,
@@ -47,6 +48,7 @@
                     <br> <a href="financeiro.php"> [ ] Aceito temos</a>
                     <br> <a href="fince"> [ ] Quero um novo orçamento</a>
                 </h1>
+            </div>
         </div>
     </div>
 
