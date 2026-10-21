@@ -30,7 +30,7 @@ body{
 {
     background-color: rgb(25, 37, 41);
     width: 608px;
-    margin-left: 700px;
+    align-items: center;
     height:808px ;
     border-radius: 7px;
 }
