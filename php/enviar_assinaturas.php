@@ -45,7 +45,7 @@
                 </h2>
 
                 <div class="h1_teste">
-                    <br> <a c href="financeiro.php"> [ ] Aceito temos</a>
+                    <br> <a c href="financeiro.php"> [ ] Aceito os Termos</a>
                 </div>
 
                 <div class="h1_teste2">
