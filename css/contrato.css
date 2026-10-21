@@ -69,7 +69,7 @@ body{
     color: red;
 }
 
-.h1_teste, .h1_teste2 :hover
+.h1_teste .h1_teste2 :hover
 {
     color:  rgb(25, 37, 41);
 }
