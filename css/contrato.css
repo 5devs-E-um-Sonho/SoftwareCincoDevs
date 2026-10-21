@@ -1,3 +1,9 @@
+body{
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+}
+
 .Nav-bar{
     background-color: rgb(25, 37, 41);
     width: 100%;
