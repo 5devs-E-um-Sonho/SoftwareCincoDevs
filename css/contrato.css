@@ -69,6 +69,11 @@ body{
     color: red;
 }
 
+.h1_teste :hover
+{
+    color:  rgb(25, 37, 41);
+}
+
 .h1_teste2 :hover
 {
     color:  rgb(25, 37, 41);
