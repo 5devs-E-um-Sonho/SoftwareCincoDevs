@@ -22,8 +22,8 @@
     <div class="termos">
             <h1>Termos e condições</h1>
     <h2>
-        A empresa <?= $nomeDaSoft?>, Garante que o uso das informações do contratante <?= $responsavel ?> são confidenciais, garantido seu armazenamento <br>
-        e acesso somente ao pessoal autorizado. Informamos tambem que o contratante tem ate 3 edições no projeto sem adicional,<br>
+        A empresa <?= $nomeDaSoft?>, Garante que o uso das informações do contratante <?= $responsavel ?> são confidenciais, garantido seu armazenamento 
+        e acesso somente ao pessoal autorizado. Informamos tambem que o contratante tem ate 3 edições no projeto sem adicional,
         partindo disso os adicionais tributados ficara no valor de 3% do valor inicial, não podendo alterar o projeto em ate um dia antes da sua entrega prevista.
         Fica da total ciencia do contratante que o projeto sera entrega em ate <?= $prazo ?> Dias uteis, e que atrasos sera informado ate um dia antes da entrega prevista
     </h2>
@@ -31,8 +31,8 @@
     <h1>Aceitações dos Termos</h1>
     
     <h2>
-        Diante as diretrizes da Empresa Credora: <?= $nomeDaSoft?>, entendo e aceito seus termos.<br>
-        Garantindo Que as seguintes informações e valores pagos, sâo do meu conhecimento, <br>
+        Diante as diretrizes da Empresa Credora: <?= $nomeDaSoft?>, entendo e aceito seus termos.
+        Garantindo Que as seguintes informações e valores pagos, sâo do meu conhecimento, 
         tambem é do conhecimento a assinatura desse documento, seu uso como um comprovante.
 
         <br>Assinado Empressa Credora: <?= $nomeDaSoft?>
