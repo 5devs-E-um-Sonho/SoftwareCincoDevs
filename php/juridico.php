@@ -112,7 +112,7 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
 
     <footer class="legal-footer">
         <div class="container">
-            <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Realizado por Amanda Orlatei.</p>
+            <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Ediatdo por Eduardo Augusto.</p>
         </div>
     </footer>
 

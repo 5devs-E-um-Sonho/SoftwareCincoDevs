@@ -31,5 +31,11 @@ $orcamentos = json_decode($conteudoJson, true);
             <a href="enviar_assinaturas.php">Contrato</a>
         </div>
     </div>
+
+    <footer class="legal-footer">
+    <div class="container">
+        <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Desenvolvido por Eduardo.</p>
+    </div>
+</footer>
 </body>
 </html>
