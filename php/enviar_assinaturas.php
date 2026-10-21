@@ -44,10 +44,16 @@
                     
                 </h2>
 
-                <h1>
-                    <br> <a href="financeiro.php"> [ ] Aceito temos</a>
-                    <br> <a href="fince"> [ ] Quero um novo orçamento</a>
+                <div class="h1_teste">
+                    <h1>
+                    <br> <a c href="financeiro.php"> [ ] Aceito temos</a>
                 </h1>
+
+                <div class="h1_teste2">
+                    <br> <a href="fince"> [ ] Quero um novo orçamento</a>
+                </div>
+
+                </div>
             </div>
         </div>
     </div>
