@@ -106,7 +106,7 @@ $valor_orçamento = isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : "
                             <input type="hidden" name="cliente_doc" value="<?php echo $cliente_doc;?>"> 
                             <input type="hidden" name="valor_orçamento" value="<?php echo $valor_orçamento;?>">
                             
-                            <a href="enviar_assinatura">Ver Termos</a>
+                            <a href="enviar_assinatura.php">Ver Termos</a>
                             
                         </form>
                     </div>
