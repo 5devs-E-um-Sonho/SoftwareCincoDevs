@@ -31,7 +31,7 @@ body{
     background-color: rgb(25, 37, 41);
     width: 608px;
     align-items: center;
-    height:808px ;
+    height:800px ;
     border-radius: 7px;
 }
 
@@ -39,7 +39,6 @@ body{
 {
     width: 600px;
     height: 800px;
-    margin-top: 4px;
     margin-left: 4px;
     border-color: rgb(25, 37, 41);;
     background-color: white;
