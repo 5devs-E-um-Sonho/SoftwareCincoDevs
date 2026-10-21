@@ -90,6 +90,7 @@ h1
     align-items: center;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .cards
 {
@@ -103,4 +104,6 @@ h1
     padding: 8px;
     margin-top: 6px;
     margin-bottom: 24px;
+
+    
 }
