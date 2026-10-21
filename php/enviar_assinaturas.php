@@ -15,7 +15,7 @@
 <body>
         <nav> 
         <div class="Nav-bar">
-            <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         </div>
     </nav><!--Nav-bar-->
     <h1>Termos e condições</h1>
