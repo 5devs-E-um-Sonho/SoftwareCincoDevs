@@ -28,11 +28,47 @@ if (file_exists($caminhoJson)) {
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
 
-
+     <div class="cabecalho">
+        <h1>ÁREA DO CLIENTE</h1>
+        <p>Acompanhe suas propostas e confirme os valores informados pelo financeiro.</p>
+    </div>
     <div class="ala">
-        <div class="clientes">
-            <a href="enviar_assinaturas.php">Contrato</a>
-        </div>
+
+    <div class="clientes">
+         <div class="orcamento">
+        <?php 
+        $temOrcamentoVisivel = false;
+
+        if (!empty($orcamentos)) {
+            foreach ($orcamentos as $indice => $orcamento) {
+                
+                $temValor = isset($orcamento["valor"]) && $orcamento["valor"] !== "";
+                $status   = $orcamento["status"] ?? "";
+
+                if ($temValor && $status !== "Rejeitado") {
+                    $temOrcamentoVisivel = true;
+                    ?>
+                    <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+                        <br>
+                        <p><span class="item">Responsável: </span><?= htmlspecialchars($orcamento["responsavel"] ?? '') ?></p>
+                        <p><span class="item">Empresa: </span><?= htmlspecialchars($orcamento["empresa"] ?? '') ?></p>
+                        <p><span class="item">Nome do projeto: </span><?= htmlspecialchars($orcamento["nomeProjeto"] ?? '') ?></p>
+                        <p><span class="item">Projeto: </span><?= htmlspecialchars($orcamento["projeto"] ?? '') ?></p>
+                        <p><span class="item">Telefone: </span><?= htmlspecialchars($orcamento["telefone"] ?? '') ?></p>
+                        <p><span class="item">E-mail: </span><?= htmlspecialchars($orcamento["email"] ?? '') ?></p>
+                        <p><span class="item">Prazo: </span><?= htmlspecialchars($orcamento["prazo"] ?? '') ?></p>
+                        <p><span class="item">Valor Proposto: </span>R$ <?= number_format((float)$orcamento["valor"], 2, ',', '.') ?></p>
+                        <p><span class="item">Status: </span><?= (!empty($orcamento["pago"])) ? "Aprovado / Pago" : "Aguardando Aceite" ?></p>
+                        <br>
+
+                        <!-- Link exigido para redirecionar para o juridico.php -->
+                        <a href="juridico.php?indice=<?= $indice; ?>" class="btn-termos">Ver Termos</a>
+                    </div>
+                    <?php
+                }
+            }
+        }<a href="enviar_assinaturas.php">Contrato</a>
+    </div>
     </div>
 
     <footer class="legal-footer">
