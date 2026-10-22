@@ -1,6 +1,6 @@
 <?php
-$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
-$orcamentos = json_decode($conteudoJson, true);
+$caminhoJson = __DIR__ . "/orcamento.json";
+$orcamentos = [];
 
 
 
