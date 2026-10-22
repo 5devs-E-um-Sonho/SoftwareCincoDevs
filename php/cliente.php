@@ -2,7 +2,10 @@
 $caminhoJson = __DIR__ . "/orcamento.json";
 $orcamentos = [];
 
-
+if (file_exists($caminhoJson)) {
+    $conteudoJson = file_get_contents($caminhoJson);
+    $orcamentos = json_decode($conteudoJson, true) ?? [];
+}
 
 ?>
 
