@@ -67,7 +67,11 @@ if (file_exists($caminhoJson)) {
                     <?php
                 }
             }
-        }<a href="enviar_assinaturas.php">Contrato</a>
+        }
+
+         if (!$temOrcamentoVisivel) {
+            echo "<h2>Nenhum orçamento pendente para aprovação no momento.</h2>";
+        }
     </div>
     </div>
 
