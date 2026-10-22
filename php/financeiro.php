@@ -8,21 +8,28 @@ if (isset($_POST["pagar"]))
     $indice = $_POST["indice"];
     $valor = $_POST["valor"];
 
-    $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
-    $orcamentos = json_decode($conteudoJson, true);
-
-    if (isset($orcamentos[$indice])) 
-    //VERIFICA SE QUAL VALOR DEVE SER ALTERADO: FALSE PARA TRUE
+    if ($valor === "" || !is_numeric($valor)) {
+        // Não atualiza o orçamento
+    }
+   
+    else
     {
-    $orcamentos[$indice]["valor"] = $valor;    
-    $orcamentos[$indice]["pago"] = true;
+        $conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
+        $orcamentos = json_decode($conteudoJson, true);
 
-        $jsonAtualizado = json_encode(
-            $orcamentos,
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-        );
+        if (isset($orcamentos[$indice]) && is_numeric($indice)) 
+        //VERIFICA SE QUAL VALOR DEVE SER ALTERADO: FALSE PARA TRUE
+        {
+        $orcamentos[$indice]["valor"] = $valor;    
+        $orcamentos[$indice]["pago"] = true;
 
-        file_put_contents(__DIR__ . "/orcamento.json",$jsonAtualizado);
+            $jsonAtualizado = json_encode(
+                $orcamentos,
+                JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+            );
+
+            file_put_contents(__DIR__ . "/orcamento.json",$jsonAtualizado);
+        }
     }
 } 
 
@@ -57,10 +64,10 @@ $orcamentos = json_decode($conteudoJson, true);
         <p class="subtit">Consulte os projetos que ainda aguardam confirmação de pagamento</p>
     </div>
 
-    <div class="orcamento">
+        <div class="orcamento"><!---->
         
             <?php foreach($orcamentos as $indice => $orcamento){?>
-            <div class="cards">
+            <!----><div class="cards"><!---->
                 <br>
                 <p><span class="item"> Responsavel: </span><?= $orcamento["responsavel"]?></p>
                 <p><span class="item"> Empresa: </span><?= $orcamento["empresa"]?></p>
@@ -70,24 +77,31 @@ $orcamentos = json_decode($conteudoJson, true);
                 <p><span class="item"> Email: </span><?= $orcamento["email"]?></p>
                 <p><span class="item"> Prazo: </span><?= $orcamento["prazo"]?></p>
                 
-                <?php if($orcamento["pago"] == false){?>
-                <form method="POST">
+                <?php if(!isset($orcamento["valor"]) || $orcamento["valor"] === ""){?>
+                    
+                    <form method="POST">
                         <input type="hidden" name="indice" value="<?= $indice; ?>">
-             
                         <input type="number" name="valor" min="0" step="0.01" required> 
                         <button class="submit" name="pagar"> PROPOR VALOR </button><br>
-                </form>  
+                    </form> 
+
+                        <?php } else { ?>
+
+                            <p><span class="item">Valor: </span><?= $orcamento["valor"]?></p> <br>
+                       
+                        <?php }?> 
+                    
+                <!----></div><!---->
                 
-                <?php } else { ?>
-                    <p><span class="item">Valor: </span><?= $orcamento["valor"]?></p> <br>
-            </div>
-                <?php }} ?>
-            
+                <?php } ?>
+             
+
             <?php if(empty($orcamentos)) { ?>
 
                     <h2>Nenhum orçamento foi efetuado ainda</h2>
 
-            <?php } ?>      
-    </div>
+            <?php } ?>
+           
+        </div>
 </body>
 </html>
