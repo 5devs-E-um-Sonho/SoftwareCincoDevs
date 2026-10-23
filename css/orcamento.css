@@ -14,7 +14,8 @@ html
     scroll-behavior: smooth;
 }
 
-.Nav-bar { /* nav bar*/
+.Nav-bar
+{ /* nav bar*/
     background-color: #192529;
     width: 100%;
     height: 50px;
