@@ -118,7 +118,7 @@ $orcamentos = json_decode($conteudoJson, true);
 
                                 <!-- Link para ver os termos passando o indice -->
 
-                                <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
+                                <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>">Ver Termos</a>
 
                             </div>
 
