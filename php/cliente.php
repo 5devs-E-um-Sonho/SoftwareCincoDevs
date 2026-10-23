@@ -1,12 +1,7 @@
 <?php
-// Carrega o orcamento.json localizado na raiz do projeto (uma pasta acima)
-$caminhoJson = __DIR__ . "/../orcamento.json";
-$orcamentos = [];
-
-if (file_exists($caminhoJson)) {
-    $conteudoJson = file_get_contents($caminhoJson);
-    $orcamentos = json_decode($conteudoJson, true);
-}
+// Carrega o arquivo JSON de orçamentos
+$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
+$orcamentos = json_decode($conteudoJson, true);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +21,7 @@ if (file_exists($caminhoJson)) {
         <a href="juridico.php">JURIDICO</a>
         <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-    </div>
+    </div><!--Nav-bar-->
 
     <div class="cabecalho">
         <h1>ÁREA DO CLIENTE</h1>
@@ -42,23 +37,27 @@ if (file_exists($caminhoJson)) {
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
                         
+                        // Pega o valor e o status se existirem
                         $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
                         $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
 
-                        // Mostra apenas se o financeiro informou valor e o cliente nao rejeitou
+                        // Só mostra se o financeiro já deu um valor e não foi rejeitado
                         if ($valor != "" && $status != "Rejeitado") {
                             $temOrcamento = true;
                             ?>
-                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
-                                <p><strong>Responsável:</strong> <?php echo $orcamento["responsavel"]; ?></p>
-                                <p><strong>Empresa:</strong> <?php echo $orcamento["empresa"]; ?></p>
-                                <p><strong>Nome do Projeto:</strong> <?php echo $orcamento["nomeProjeto"]; ?></p>
-                                <p><strong>Descrição:</strong> <?php echo $orcamento["projeto"]; ?></p>
-                                <p><strong>Prazo:</strong> <?php echo $orcamento["prazo"]; ?></p>
-                                <p><strong>Valor:</strong> R$ <?php echo $orcamento["valor"]; ?></p>
+                            <div class="cards">
+                                <br>
+                                <p><span class="item">Responsável: </span><?php echo $orcamento["responsavel"]; ?></p>
+                                <p><span class="item">Empresa: </span><?php echo $orcamento["empresa"]; ?></p>
+                                <p><span class="item">Nome do projeto: </span><?php echo $orcamento["nomeProjeto"]; ?></p>
+                                <p><span class="item">Projeto: </span><?php echo $orcamento["projeto"]; ?></p>
+                                <p><span class="item">Telefone: </span><?php echo $orcamento["telefone"]; ?></p>
+                                <p><span class="item">E-mail: </span><?php echo $orcamento["email"]; ?></p>
+                                <p><span class="item">Prazo: </span><?php echo $orcamento["prazo"]; ?></p>
+                                <p><span class="item">Valor Proposto: </span>R$ <?php echo $orcamento["valor"]; ?></p>
                                 <br>
 
-                                <!-- Link exigido para redirecionar para o juridico.php -->
+                                <!-- Link para ver os termos passando o indice -->
                                 <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
                             </div>
                             <?php
@@ -76,7 +75,7 @@ if (file_exists($caminhoJson)) {
 
     <footer class="legal-footer">
         <div class="container">
-            <p>&copy; 2026 5 Devs e Um Sonho. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas.</p>
+            <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Desenvolvido por Eduardo.</p>
         </div>
     </footer>
 </body>
