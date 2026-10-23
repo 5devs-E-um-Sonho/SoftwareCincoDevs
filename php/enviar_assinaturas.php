@@ -100,13 +100,12 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
 
                     <div class="h1_teste">
                         <br>
-                        <button type="submit" name="opcao" value="aceitar" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit; font-weight:bold;">[ X ] Aceito os Termos</button>
+                        <a href="desenvolvimento.php">Aceito os Termos & Valores</a>
                     </div>
 
                     <div class="h1_teste2">
                         <br>
-                        <button type="submit" name="opcao" value="rejeitar" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit; font-weight:bold;">[ X ] Quero um novo orçamento</button>
-                    </div>
+                        <a href="finaceiro.php">Novo Orçamento</a>
                 </form>
 
             </div>
