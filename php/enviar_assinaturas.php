@@ -1,5 +1,5 @@
 <?php 
-// Puxa do orcamento.json localizado na raiz (uma pasta acima da pasta php/)
+// Puxa do orcamento.json localizado na raiz do projeto
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -19,7 +19,7 @@ if (isset($_GET["indice"])) {
     $indice = "";
 }
 
-// Processa o clique nos botoes de aceite ou recusa
+// Processa a decisao de Aceitar ou Rejeitar
 if (isset($_POST["opcao"])) {
     $opcao = $_POST["opcao"];
 
@@ -33,7 +33,7 @@ if (isset($_POST["opcao"])) {
         $orcamentos[$indice]["status"] = "Rejeitado";
     }
 
-    // Salva a alteracao no orcamento.json na raiz
+    // Grava de volta no orcamento.json
     $jsonAtualizado = json_encode($orcamentos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     file_put_contents($caminhoJson, $jsonAtualizado);
 
@@ -42,7 +42,7 @@ if (isset($_POST["opcao"])) {
     exit;
 }
 
-// Puxa as informacoes exatas do cliente selecionado no cliente.php
+// Carrega os dados exatos do cliente selecionado no cliente.php
 if ($indice !== "" && isset($orcamentos[$indice])) {
     $responsavel = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "Cliente Não Informado";
     $nomeProjeto = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "---";
@@ -76,10 +76,11 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
             <div class="test_ass">
                 <h1>Termos e Condições</h1>
                 <h2>
-                    A empresa <?php echo $nomeDaSoft; ?>, garante que o uso das informações do contratante <?php echo $responsavel; ?> são confidenciais, garantindo seu armazenamento 
+                    A empresa <?php echo $nomeDaSoft; ?>, garante que o uso das informações do contratante <strong><?php echo $responsavel; ?></strong> são confidenciais, garantindo seu armazenamento 
                     e acesso somente ao pessoal autorizado. Informamos também que o contratante tem até 3 edições no projeto sem custo adicional,
                     partindo disso os adicionais tributados ficarão no valor de 3% do valor inicial, não podendo alterar o projeto em até um dia antes da sua entrega prevista.
-                    Fica da total ciência do contratante que o projeto <?php echo $nomeProjeto; ?> no valor de <?php echo $valor; ?> será entregue no prazo de <?php echo $prazo; ?>.
+                    <br><br>
+                    Fica da total ciência do contratante que o projeto <strong><?php echo $nomeProjeto; ?></strong> no valor de <strong><?php echo $valor; ?></strong> será entregue no prazo de <strong><?php echo $prazo; ?></strong>.
                 </h2>
 
                 <h1>Aceitação dos Termos</h1>
@@ -90,11 +91,11 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
                     como também é do meu conhecimento a assinatura deste documento e seu uso como comprovante.
 
                     <br><br>Assinado Empresa Credora: <?php echo $nomeDaSoft; ?>
-                    <br>Assinado Cliente: <?php echo $responsavel; ?>
+                    <br>Assinado Cliente: <strong><?php echo $responsavel; ?></strong>
                 </h2>
 
                 <form method="POST">
-                    <!-- Campo invisivel para enviar o indice do cliente selecionado -->
+                    <!-- Passa o indice do cliente selecionado -->
                     <input type="hidden" name="indice" value="<?php echo $indice; ?>">
 
                     <div class="h1_teste">
