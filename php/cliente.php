@@ -1,7 +1,12 @@
 <?php
-// Carrega o arquivo JSON de orçamentos
-$conteudoJson = file_get_contents(__DIR__ . "/orcamento.json");
-$orcamentos = json_decode($conteudoJson, true);
+// Carrega o arquivo JSON localizado na raiz do projeto
+$caminhoJson = __DIR__ . "/../orcamento.json";
+$orcamentos = [];
+
+if (file_exists($caminhoJson)) {
+    $conteudoJson = file_get_contents($caminhoJson);
+    $orcamentos = json_decode($conteudoJson, true);
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +26,7 @@ $orcamentos = json_decode($conteudoJson, true);
         <a href="juridico.php">JURIDICO</a>
         <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
-    </div><!--Nav-bar-->
+    </div>
 
     <div class="cabecalho">
         <h1>ÁREA DO CLIENTE</h1>
@@ -37,11 +42,10 @@ $orcamentos = json_decode($conteudoJson, true);
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
                         
-                        // Pega o valor e o status se existirem
                         $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
                         $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
 
-                        // Só mostra se o financeiro já deu um valor e não foi rejeitado
+                        // Exibe orçamentos que já possuem valor definido e não foram rejeitados
                         if ($valor != "" && $status != "Rejeitado") {
                             $temOrcamento = true;
                             ?>
@@ -57,7 +61,7 @@ $orcamentos = json_decode($conteudoJson, true);
                                 <p><span class="item">Valor Proposto: </span>R$ <?php echo $orcamento["valor"]; ?></p>
                                 <br>
 
-                                <!-- Link para ver os termos passando o indice -->
+                                <!-- Envia a posição do item escolhido para o juridico.php -->
                                 <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
                             </div>
                             <?php

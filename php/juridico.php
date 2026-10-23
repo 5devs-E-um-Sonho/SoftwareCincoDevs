@@ -1,31 +1,4 @@
-<?php
-// Carrega o orcamento.json localizado na raiz
-$caminhoJson = __DIR__ . "/../orcamento.json";
-$orcamentos = [];
 
-if (file_exists($caminhoJson)) {
-    $conteudoJson = file_get_contents($caminhoJson);
-    $orcamentos = json_decode($conteudoJson, true);
-}
-
-// Pega o indice enviado na URL (?indice=X)
-if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET["indice"]])) {
-    $indice = $_GET["indice"];
-    
-    $cliente_nome    = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "";
-    $empresa_nome    = isset($orcamentos[$indice]["empresa"]) ? $orcamentos[$indice]["empresa"] : "";
-    $nome_projeto    = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "";
-    $prazo_entrega   = isset($orcamentos[$indice]["prazo"]) ? $orcamentos[$indice]["prazo"] : "";
-    $valor_orcamento = isset($orcamentos[$indice]["valor"]) ? $orcamentos[$indice]["valor"] : "";
-} else {
-    $indice = "";
-    $cliente_nome = "";
-    $empresa_nome = "";
-    $nome_projeto = "";
-    $prazo_entrega = "";
-    $valor_orcamento = "";
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,7 +44,7 @@ if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET[
             <p>Garantia técnica de 30 dias após a entrega para correção de falhas sem custo adicional.</p>
 
             <br>
-            <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>" style="background: #007bff; color: white; padding: 10px 15px; text-decoration: none;">Avançar para Assinatura do Contrato</a>
+            
         </div>
     </div>
 
