@@ -2,6 +2,7 @@ body{
     overflow-x: hidden;
     width: 100%;
     margin: 0;
+    background-color: #1a1a20;
 }
 
 .Nav-bar{
