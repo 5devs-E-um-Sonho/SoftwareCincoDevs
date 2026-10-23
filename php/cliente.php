@@ -1,10 +1,10 @@
 <?php
-$caminhoJson = __DIR__ . "/orcamento.json";
+$caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
 if (file_exists($caminhoJson)) {
     $conteudoJson = file_get_contents($caminhoJson);
-    $orcamentos = json_decode($conteudoJson, true) ?? [];
+    $orcamentos = json_decode($conteudoJson, true);
 }
 ?>
 
@@ -18,7 +18,7 @@ if (file_exists($caminhoJson)) {
 </head>
 <body>
     <div class="Nav-bar">
-        <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="Logo">
+        <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
         <a href="../index.php">INICIO</a>
         <a href="orcamento.php">ORÇAMENTO</a>
         <a href="financeiro.php">FINANCEIRO</a>
@@ -36,47 +36,45 @@ if (file_exists($caminhoJson)) {
         <div class="clientes">
             <div class="orcamento">
                 <?php 
-                $temOrcamentoVisivel = false;
+                $temOrcamento = false;
 
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
-                        $temValor = isset($orcamento["valor"]) && $orcamento["valor"] !== "";
-                        $status   = $orcamento["status"] ?? "";
+                        
+                        $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
+                        $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
 
-                        if ($temValor && $status !== "Rejeitado") {
-                            $temOrcamentoVisivel = true;
+                        if ($valor != "" && $status != "Rejeitado") {
+                            $temOrcamento = true;
                             ?>
-                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
-                                <br>
-                                <p><span class="item">Responsável: </span><?= htmlspecialchars($orcamento["responsavel"] ?? '') ?></p>
-                                <p><span class="item">Empresa: </span><?= htmlspecialchars($orcamento["empresa"] ?? '') ?></p>
-                                <p><span class="item">Nome do projeto: </span><?= htmlspecialchars($orcamento["nomeProjeto"] ?? '') ?></p>
-                                <p><span class="item">Projeto: </span><?= htmlspecialchars($orcamento["projeto"] ?? '') ?></p>
-                                <p><span class="item">Telefone: </span><?= htmlspecialchars($orcamento["telefone"] ?? '') ?></p>
-                                <p><span class="item">E-mail: </span><?= htmlspecialchars($orcamento["email"] ?? '') ?></p>
-                                <p><span class="item">Prazo: </span><?= htmlspecialchars($orcamento["prazo"] ?? '') ?></p>
-                                <p><span class="item">Valor Proposto: </span>R$ <?= number_format((float)$orcamento["valor"], 2, ',', '.') ?></p>
-                                <p><span class="item">Status: </span><?= (!empty($orcamento["pago"])) ? "Aprovado / Pago" : "Aguardando Aceite" ?></p>
+                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+                                <p><strong>Responsável:</strong> <?php echo isset($orcamento["responsavel"]) ? $orcamento["responsavel"] : ""; ?></p>
+                                <p><strong>Empresa:</strong> <?php echo isset($orcamento["empresa"]) ? $orcamento["empresa"] : ""; ?></p>
+                                <p><strong>Nome do Projeto:</strong> <?php echo isset($orcamento["nomeProjeto"]) ? $orcamento["nomeProjeto"] : ""; ?></p>
+                                <p><strong>Descrição:</strong> <?php echo isset($orcamento["projeto"]) ? $orcamento["projeto"] : ""; ?></p>
+                                <p><strong>Prazo:</strong> <?php echo isset($orcamento["prazo"]) ? $orcamento["prazo"] : ""; ?></p>
+                                <p><strong>Valor:</strong> R$ <?php echo $orcamento["valor"]; ?></p>
                                 <br>
 
-                                <a href="juridico.php?indice=<?= $indice; ?>" class="btn-termos">Ver Termos</a>
+                                <!-- Garante que o indice e enviado na URL -->
+                                <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
                             </div>
                             <?php
                         }
                     }
                 }
 
-                if (!$temOrcamentoVisivel) {
+                if ($temOrcamento == false) {
                     echo "<h2>Nenhum orçamento pendente para aprovação no momento.</h2>";
                 }
-                ?> <!-- FECHAMENTO CORRETO DO PHP AQUI -->
+                ?>
             </div>
         </div>
     </div>
 
     <footer class="legal-footer">
         <div class="container">
-            <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas. Desenvolvido por Eduardo.</p>
+            <p>&copy; 2026 5 Devs e Um Sonho. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas.</p>
         </div>
     </footer>
 </body>
