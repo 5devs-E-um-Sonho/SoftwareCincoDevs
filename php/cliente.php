@@ -1,4 +1,5 @@
 <?php
+// Carrega o orcamento.json localizado na raiz do projeto (uma pasta acima)
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -41,23 +42,24 @@ if (file_exists($caminhoJson)) {
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
                         
+                        $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
                         $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
-                        $valor  = isset($orcamento["valor"]) && $orcamento["valor"] !== "" ? $orcamento["valor"] : "Em análise pelo financeiro";
 
-                        // Exibe todos os orçamentos que não foram rejeitados
-                        if ($status != "Rejeitado") {
+                        // Mostra apenas se o financeiro informou valor e o cliente nao rejeitou
+                        if ($valor != "" && $status != "Rejeitado") {
                             $temOrcamento = true;
                             ?>
-                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background: #fff;">
-                                <p><strong>Responsável:</strong> <?php echo isset($orcamento["responsavel"]) ? $orcamento["responsavel"] : ""; ?></p>
-                                <p><strong>Empresa:</strong> <?php echo isset($orcamento["empresa"]) ? $orcamento["empresa"] : ""; ?></p>
-                                <p><strong>Nome do Projeto:</strong> <?php echo isset($orcamento["nomeProjeto"]) ? $orcamento["nomeProjeto"] : ""; ?></p>
-                                <p><strong>Descrição:</strong> <?php echo isset($orcamento["projeto"]) ? $orcamento["projeto"] : ""; ?></p>
-                                <p><strong>Prazo:</strong> <?php echo isset($orcamento["prazo"]) ? $orcamento["prazo"] : ""; ?></p>
-                                <p><strong>Valor Proposto:</strong> R$ <?php echo $valor; ?></p>
+                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+                                <p><strong>Responsável:</strong> <?php echo $orcamento["responsavel"]; ?></p>
+                                <p><strong>Empresa:</strong> <?php echo $orcamento["empresa"]; ?></p>
+                                <p><strong>Nome do Projeto:</strong> <?php echo $orcamento["nomeProjeto"]; ?></p>
+                                <p><strong>Descrição:</strong> <?php echo $orcamento["projeto"]; ?></p>
+                                <p><strong>Prazo:</strong> <?php echo $orcamento["prazo"]; ?></p>
+                                <p><strong>Valor:</strong> R$ <?php echo $orcamento["valor"]; ?></p>
                                 <br>
 
-                                <a href="juridico.php?indice=<?php echo $indice; ?>" style="background: #007bff; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px;">Ver Termos</a>
+                                <!-- Link exigido para redirecionar para o juridico.php -->
+                                <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
                             </div>
                             <?php
                         }
@@ -65,7 +67,7 @@ if (file_exists($caminhoJson)) {
                 }
 
                 if ($temOrcamento == false) {
-                    echo "<h2>Nenhum orçamento pendente no momento.</h2>";
+                    echo "<h2>Nenhum orçamento pendente para aprovação no momento.</h2>";
                 }
                 ?>
             </div>
