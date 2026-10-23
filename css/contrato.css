@@ -79,6 +79,7 @@ body{
     color:  rgb(25, 37, 41);
 }
 
-strong{
-    color:  rgb(25, 37, 41);
+.test_ass strong {
+    color: #00aeef; 
+    font-weight: bold;
 }
