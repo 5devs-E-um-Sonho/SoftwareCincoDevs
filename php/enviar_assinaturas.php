@@ -1,6 +1,6 @@
 <?php 
-// Puxa o orcamento.json na raiz do projeto
-$caminhoJson = __DIR__ . "/../orcamento.json";
+// Puxa o orcamento.json no mesmo diretório
+$caminhoJson = __DIR__ . "/orcamento.json";
 $orcamentos = [];
 
 if (file_exists($caminhoJson)) {
@@ -44,10 +44,10 @@ if (isset($_POST["opcao"])) {
 
 // Busca as informações do cliente específico selecionado no cliente.php
 if ($indice !== "" && isset($orcamentos[$indice])) {
-    $responsavel = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "Cliente Não Informado";
-    $nomeProjeto = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "---";
-    $prazo       = isset($orcamentos[$indice]["prazo"]) ? $orcamentos[$indice]["prazo"] : "---";
-    $valor       = isset($orcamentos[$indice]["valor"]) ? "R$ " . $orcamentos[$indice]["valor"] : "R$ 0,00";
+    $responsavel = !empty($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "Cliente Não Informado";
+    $nomeProjeto = !empty($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "---";
+    $prazo       = !empty($orcamentos[$indice]["prazo"]) ? $orcamentos[$indice]["prazo"] : "---";
+    $valor       = !empty($orcamentos[$indice]["valor"]) ? "R$ " . $orcamentos[$indice]["valor"] : "R$ 0,00";
 } else {
     $responsavel = "Cliente Não Informado";
     $nomeProjeto = "---";
