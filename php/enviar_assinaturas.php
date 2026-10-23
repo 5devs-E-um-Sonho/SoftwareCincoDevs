@@ -111,5 +111,12 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
             </div>
         </div>
     </div>
+
+<footer class="legal-footer">
+    <div class="container">
+        <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas.</p>
+    </div>
+</footer>
+
 </body>
 </html>

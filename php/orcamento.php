@@ -158,11 +158,11 @@ $orcamentos = json_decode($conteudoJson, true);
         </section>
     </main>
 
-    <footer>
-        <p>
-            DESENVOLVIDO POR <a href="https://jose755.devlook.xyz">CINCO DEVS </a>
-        </p>
-    </footer>
+    <footer class="legal-footer">
+    <div class="container">
+        <p>&copy; 2026 5 Devs e Um Sonho. Todos os direitos reservados. Projeto Acadêmico - Técnico em Desenvolvimento de Sistemas.</p>
+    </div>
+</footer>
 
 
 </body>

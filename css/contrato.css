@@ -83,3 +83,12 @@ body{
     color: #00aeef; 
     font-weight: bold;
 }
+
+.legal-footer {
+    background-color:rgb(25, 37, 41);
+    color: #00aeef;;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.875rem;
+    border-top: 1px solid rgb(25, 37, 41);
+}

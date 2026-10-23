@@ -265,8 +265,8 @@ body {
    6. RODAPÉ (FOOTER)
    ========================================================================== */
 .legal-footer {
-    background-color: var(--secondary-color);
-    color: var(--text-muted);
+    background-color:rgb(25, 37, 41);
+    color: #00aeef;;
     text-align: center;
     padding: 2rem 0;
     font-size: 0.875rem;
