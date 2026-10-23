@@ -79,6 +79,10 @@ body{
     text-align: left; 
 }
 
+.cards p{
+    font-weight: bold;
+}
+
 .legal-footer {
     margin-top: auto;
     background-color: rgb(25, 37, 41);
