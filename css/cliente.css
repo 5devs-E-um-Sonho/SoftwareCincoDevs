@@ -53,8 +53,33 @@ body{
     font-weight: 600;
 }
 
+.ala {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.clientes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; 
+    padding: 20px;
+}
+
+.cards {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: left; 
+}
+
 .legal-footer {
-    /* Empurra o footer para o final da página */
     margin-top: auto;
     background-color: rgb(25, 37, 41);
     color: #00aeef;
