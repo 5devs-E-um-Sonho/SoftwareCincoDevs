@@ -73,7 +73,7 @@ $orcamentos = json_decode($conteudoJson, true);
                                 <p><span class="item">Valor Proposto: </span>R$ <?php echo $orcamento["valor"]; ?></p>
                                 <br>
 
-                                <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>">Ver Termos</a>
+                                <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>">assinatura</a>
                             </div>
                             <?php
                         }
