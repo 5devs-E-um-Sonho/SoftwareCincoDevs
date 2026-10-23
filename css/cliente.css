@@ -91,6 +91,10 @@ body{
     font-size: 20px;
 }
 
+.cards a:hover{
+    color:rgb(25, 37, 41);
+}
+
 .legal-footer {
     margin-top: auto;
     background-color: rgb(25, 37, 41);
