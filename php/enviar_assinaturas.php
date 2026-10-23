@@ -1,5 +1,5 @@
 <?php 
-// Puxa do orcamento.json localizado na raiz do projeto
+// Puxa o orcamento.json na raiz do projeto
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -10,7 +10,7 @@ if (file_exists($caminhoJson)) {
 
 $nomeDaSoft = "Five Devs e Um Sonho";
 
-// Recupera o indice enviado na URL ou pelo Formulario
+// Pega a posição passada via URL ou Formulário
 if (isset($_GET["indice"])) {
     $indice = $_GET["indice"];
 } else if (isset($_POST["indice"])) {
@@ -19,7 +19,7 @@ if (isset($_GET["indice"])) {
     $indice = "";
 }
 
-// Processa a decisao de Aceitar ou Rejeitar
+// Processa o aceite ou recusa
 if (isset($_POST["opcao"])) {
     $opcao = $_POST["opcao"];
 
@@ -33,16 +33,16 @@ if (isset($_POST["opcao"])) {
         $orcamentos[$indice]["status"] = "Rejeitado";
     }
 
-    // Grava de volta no orcamento.json
+    // Salva a alteração de volta no orcamento.json
     $jsonAtualizado = json_encode($orcamentos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     file_put_contents($caminhoJson, $jsonAtualizado);
 
-    // Redireciona de volta para a area do cliente
+    // Redireciona para a área do cliente
     header("Location: cliente.php");
     exit;
 }
 
-// Carrega os dados exatos do cliente selecionado no cliente.php
+// Busca as informações do cliente específico selecionado no cliente.php
 if ($indice !== "" && isset($orcamentos[$indice])) {
     $responsavel = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "Cliente Não Informado";
     $nomeProjeto = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "---";
@@ -95,7 +95,7 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
                 </h2>
 
                 <form method="POST">
-                    <!-- Passa o indice do cliente selecionado -->
+                    <!-- Mantém o índice do cliente no envio do formulário -->
                     <input type="hidden" name="indice" value="<?php echo $indice; ?>">
 
                     <div class="h1_teste">
