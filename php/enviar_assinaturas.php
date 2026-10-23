@@ -105,7 +105,7 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
 
                     <div class="h1_teste2">
                         <br>
-                        <a href="finaceiro.php">Novo Orçamento</a>
+                        <a href="financeiro.php">Novo Orçamento</a>
                 </form>
 
             </div>
