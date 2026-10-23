@@ -85,6 +85,12 @@ body{
     font-size: 20px;
 }
 
+.cards a{
+    text-decoration: none;
+    color: rgb(#00aeef);
+    font-size: 12px;
+}
+
 .legal-footer {
     margin-top: auto;
     background-color: rgb(25, 37, 41);
