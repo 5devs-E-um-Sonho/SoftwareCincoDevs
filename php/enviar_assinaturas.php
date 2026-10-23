@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="h1_teste2">
-                    <br> <a href="fince"> [ ] Quero um novo orçamento</a>
+                    <br> <a href="cliente.php"> [ ] Quero um novo orçamento</a>
                 </div>
             </div>
         </div>
