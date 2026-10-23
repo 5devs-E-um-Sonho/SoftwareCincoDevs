@@ -41,23 +41,23 @@ if (file_exists($caminhoJson)) {
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
                         
-                        $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
                         $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
+                        $valor  = isset($orcamento["valor"]) && $orcamento["valor"] !== "" ? $orcamento["valor"] : "Em análise pelo financeiro";
 
-                        if ($valor != "" && $status != "Rejeitado") {
+                        // Exibe todos os orçamentos que não foram rejeitados
+                        if ($status != "Rejeitado") {
                             $temOrcamento = true;
                             ?>
-                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+                            <div class="cards" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background: #fff;">
                                 <p><strong>Responsável:</strong> <?php echo isset($orcamento["responsavel"]) ? $orcamento["responsavel"] : ""; ?></p>
                                 <p><strong>Empresa:</strong> <?php echo isset($orcamento["empresa"]) ? $orcamento["empresa"] : ""; ?></p>
                                 <p><strong>Nome do Projeto:</strong> <?php echo isset($orcamento["nomeProjeto"]) ? $orcamento["nomeProjeto"] : ""; ?></p>
                                 <p><strong>Descrição:</strong> <?php echo isset($orcamento["projeto"]) ? $orcamento["projeto"] : ""; ?></p>
                                 <p><strong>Prazo:</strong> <?php echo isset($orcamento["prazo"]) ? $orcamento["prazo"] : ""; ?></p>
-                                <p><strong>Valor:</strong> R$ <?php echo $orcamento["valor"]; ?></p>
+                                <p><strong>Valor Proposto:</strong> R$ <?php echo $valor; ?></p>
                                 <br>
 
-                                <!-- Garante que o indice e enviado na URL -->
-                                <a href="juridico.php?indice=<?php echo $indice; ?>">Ver Termos</a>
+                                <a href="juridico.php?indice=<?php echo $indice; ?>" style="background: #007bff; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px;">Ver Termos</a>
                             </div>
                             <?php
                         }
@@ -65,7 +65,7 @@ if (file_exists($caminhoJson)) {
                 }
 
                 if ($temOrcamento == false) {
-                    echo "<h2>Nenhum orçamento pendente para aprovação no momento.</h2>";
+                    echo "<h2>Nenhum orçamento pendente no momento.</h2>";
                 }
                 ?>
             </div>
