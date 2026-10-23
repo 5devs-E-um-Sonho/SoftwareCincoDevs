@@ -1,4 +1,5 @@
 <?php
+// Carrega o orcamento.json localizado na raiz
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -7,22 +8,22 @@ if (file_exists($caminhoJson)) {
     $orcamentos = json_decode($conteudoJson, true);
 }
 
-// Pega o indice que veio pela URL
-if (isset($_GET["indice"])) {
+// Pega o indice enviado na URL (?indice=X)
+if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET["indice"]])) {
     $indice = $_GET["indice"];
     
-    $cliente_nome = $orcamentos[$indice]["responsavel"];
-    $empresa_nome = $orcamentos[$indice]["empresa"];
-    $nome_projeto = $orcamentos[$indice]["nomeProjeto"];
-    $prazo_entrega = $orcamentos[$indice]["prazo"];
-    $valor_orcamento = $orcamentos[$indice]["valor"];
+    $cliente_nome    = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "";
+    $empresa_nome    = isset($orcamentos[$indice]["empresa"]) ? $orcamentos[$indice]["empresa"] : "";
+    $nome_projeto    = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "";
+    $prazo_entrega   = isset($orcamentos[$indice]["prazo"]) ? $orcamentos[$indice]["prazo"] : "";
+    $valor_orcamento = isset($orcamentos[$indice]["valor"]) ? $orcamentos[$indice]["valor"] : "";
 } else {
     $indice = "";
-    $cliente_nome = "Não selecionado";
-    $empresa_nome = "Não informada";
-    $nome_projeto = "Não informado";
-    $prazo_entrega = "A combinar";
-    $valor_orcamento = "0,00";
+    $cliente_nome = "";
+    $empresa_nome = "";
+    $nome_projeto = "";
+    $prazo_entrega = "";
+    $valor_orcamento = "";
 }
 ?>
 
@@ -32,7 +33,7 @@ if (isset($_GET["indice"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/juridico.css">
-    <title>Jurídico - Termos</title>
+    <title>Central Jurídica e Termos</title>
 </head>
 <body>
 
@@ -56,7 +57,7 @@ if (isset($_GET["indice"])) {
             <h2>Minuta Padrão de Contrato</h2>
             
             <p><strong>CONTRATADA:</strong> Five Devs e um Sonho</p>
-            <p><strong>CONTRATANTE:</strong> <?php echo $cliente_nome; ?> (Empresa: <?php echo $empresa_nome; ?>)</p>
+            <p><strong>CONTRATANTE:</strong> <?php echo $cliente_nome; ?> <?php if ($empresa_nome != "") { echo "(Empresa: " . $empresa_nome . ")"; } ?></p>
             <p><strong>PROJETO:</strong> <?php echo $nome_projeto; ?></p>
             <p><strong>PRAZO:</strong> <?php echo $prazo_entrega; ?></p>
             <p><strong>VALOR TOTAL:</strong> R$ <?php echo $valor_orcamento; ?></p>
@@ -70,7 +71,6 @@ if (isset($_GET["indice"])) {
             <p>Garantia técnica de 30 dias após a entrega para correção de falhas sem custo adicional.</p>
 
             <br>
-            
             <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>" style="background: #007bff; color: white; padding: 10px 15px; text-decoration: none;">Avançar para Assinatura do Contrato</a>
         </div>
     </div>
