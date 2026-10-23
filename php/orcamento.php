@@ -70,13 +70,13 @@ $orcamentos = json_decode($conteudoJson, true);
 
     <header>
         <div class="Nav-bar">
-            <img src="imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
+            <img src="../imgHtml/Gemini_Generated_Image_5kpxl15kpxl15kpx-removebg-preview.png" alt="">
             <a href="../index.php">INICIO</a>
             <a href="orcamentos.php">ORÇAMENTO</a>
-            <a href="../financiero.php">FINANCEIRO</a>
-            <a href="../juridico.php">JURIDICO</a>
-            <a href="../projetos.php">PROJETOS</a>
-            <a href="../desenvolivmento.php">DESENVOLVIMENTO</a>
+            <a href="financiero.php">FINANCEIRO</a>
+            <a href="juridico.php">JURIDICO</a>
+            <a href="projetos.php">PROJETOS</a>
+            <a href="desenvolivmento.php">DESENVOLVIMENTO</a>
         </div>
         <!--Nav-bar-->
     </header>
