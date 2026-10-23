@@ -42,6 +42,7 @@ body{
 }
 
 .legal-footer {
+    margin: end;
     background-color:rgb(25, 37, 41);
     color: #00aeef;;
     text-align: center;

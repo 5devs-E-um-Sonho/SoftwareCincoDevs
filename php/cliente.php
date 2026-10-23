@@ -11,21 +11,13 @@ $orcamentos = json_decode($conteudoJson, true);
 
 
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../css/cliente.css">
-
     <title>Clientes</title>
-
 </head>
-
 <body>
 
     <div class="Nav-bar">
@@ -37,8 +29,6 @@ $orcamentos = json_decode($conteudoJson, true);
         <a href="cliente.php">CLIENTES</a>
         <a href="desenvolvimento.php">DESENVOLVIMENTO</a>
     </div><!--Nav-bar-->
-
-
 
     <div class="cabecalho">
         <h1>ÁREA DO CLIENTE</h1>
@@ -53,11 +43,8 @@ $orcamentos = json_decode($conteudoJson, true);
                 if (!empty($orcamentos)) {
                     foreach ($orcamentos as $indice => $orcamento) {
 
-                       
-
                         $valor = isset($orcamento["valor"]) ? $orcamento["valor"] : "";
                         $status = isset($orcamento["status"]) ? $orcamento["status"] : "";
-
                         if ($valor != "" && $status != "Rejeitado") {
                             $temOrcamento = true;
                             ?>
@@ -77,13 +64,8 @@ $orcamentos = json_decode($conteudoJson, true);
                             </div>
                             <?php
                         }
-
                     }
-
                 }
-
-
-
                 if ($temOrcamento == false) {
                     echo "<h2>Nenhum orçamento pendente para aprovação no momento.</h2>";
                 }
@@ -91,8 +73,6 @@ $orcamentos = json_decode($conteudoJson, true);
             </div>
         </div>
     </div>
-
-
 
     <footer class="legal-footer">
         <div class="container">
