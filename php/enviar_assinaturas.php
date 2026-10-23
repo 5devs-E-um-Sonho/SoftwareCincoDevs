@@ -1,4 +1,5 @@
 <?php 
+// Puxa do orcamento.json localizado na raiz (uma pasta acima da pasta php/)
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -9,7 +10,7 @@ if (file_exists($caminhoJson)) {
 
 $nomeDaSoft = "Five Devs e Um Sonho";
 
-// Pega o indice vindo pela URL ou pelo Formulario
+// Recupera o indice enviado na URL ou pelo Formulario
 if (isset($_GET["indice"])) {
     $indice = $_GET["indice"];
 } else if (isset($_POST["indice"])) {
@@ -18,7 +19,7 @@ if (isset($_GET["indice"])) {
     $indice = "";
 }
 
-// Lógica ao clicar em Aceitar ou Rejeitar
+// Processa o clique nos botoes de aceite ou recusa
 if (isset($_POST["opcao"])) {
     $opcao = $_POST["opcao"];
 
@@ -32,21 +33,21 @@ if (isset($_POST["opcao"])) {
         $orcamentos[$indice]["status"] = "Rejeitado";
     }
 
-    // Salva a alteração no orcamento.json
+    // Salva a alteracao no orcamento.json na raiz
     $jsonAtualizado = json_encode($orcamentos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     file_put_contents($caminhoJson, $jsonAtualizado);
 
-    // Redireciona de volta
+    // Redireciona de volta para a area do cliente
     header("Location: cliente.php");
     exit;
 }
 
-// Carrega os dados do item selecionado
+// Puxa as informacoes exatas do cliente selecionado no cliente.php
 if ($indice !== "" && isset($orcamentos[$indice])) {
-    $responsavel = $orcamentos[$indice]["responsavel"];
-    $nomeProjeto = $orcamentos[$indice]["nomeProjeto"];
-    $prazo       = $orcamentos[$indice]["prazo"];
-    $valor       = "R$ " . $orcamentos[$indice]["valor"];
+    $responsavel = isset($orcamentos[$indice]["responsavel"]) ? $orcamentos[$indice]["responsavel"] : "Cliente Não Informado";
+    $nomeProjeto = isset($orcamentos[$indice]["nomeProjeto"]) ? $orcamentos[$indice]["nomeProjeto"] : "---";
+    $prazo       = isset($orcamentos[$indice]["prazo"]) ? $orcamentos[$indice]["prazo"] : "---";
+    $valor       = isset($orcamentos[$indice]["valor"]) ? "R$ " . $orcamentos[$indice]["valor"] : "R$ 0,00";
 } else {
     $responsavel = "Cliente Não Informado";
     $nomeProjeto = "---";
@@ -54,6 +55,7 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
     $valor       = "R$ 0,00";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,7 +77,8 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
                 <h1>Termos e Condições</h1>
                 <h2>
                     A empresa <?php echo $nomeDaSoft; ?>, garante que o uso das informações do contratante <?php echo $responsavel; ?> são confidenciais, garantindo seu armazenamento 
-                    e acesso somente ao pessoal autorizado. Informamos também que o contratante tem até 3 edições no projeto sem custo adicional.
+                    e acesso somente ao pessoal autorizado. Informamos também que o contratante tem até 3 edições no projeto sem custo adicional,
+                    partindo disso os adicionais tributados ficarão no valor de 3% do valor inicial, não podendo alterar o projeto em até um dia antes da sua entrega prevista.
                     Fica da total ciência do contratante que o projeto <?php echo $nomeProjeto; ?> no valor de <?php echo $valor; ?> será entregue no prazo de <?php echo $prazo; ?>.
                 </h2>
 
@@ -84,25 +87,27 @@ if ($indice !== "" && isset($orcamentos[$indice])) {
                 <h2>
                     Diante das diretrizes da Empresa Credora: <?php echo $nomeDaSoft; ?>, entendo e aceito seus termos.
                     Garantindo que as informações e valores pagos são do meu conhecimento, 
-                    como também a assinatura deste documento e seu uso como comprovante.
+                    como também é do meu conhecimento a assinatura deste documento e seu uso como comprovante.
 
                     <br><br>Assinado Empresa Credora: <?php echo $nomeDaSoft; ?>
                     <br>Assinado Cliente: <?php echo $responsavel; ?>
                 </h2>
 
                 <form method="POST">
+                    <!-- Campo invisivel para enviar o indice do cliente selecionado -->
                     <input type="hidden" name="indice" value="<?php echo $indice; ?>">
 
                     <div class="h1_teste">
                         <br>
-                        <button type="submit" name="opcao" value="aceitar" style="background: none; border: none; color: inherit; cursor: pointer; font-size: inherit;">[ X ] Aceito os Termos</button>
+                        <button type="submit" name="opcao" value="aceitar" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit; font-weight:bold;">[ X ] Aceito os Termos</button>
                     </div>
 
                     <div class="h1_teste2">
                         <br>
-                        <button type="submit" name="opcao" value="rejeitar" style="background: none; border: none; color: inherit; cursor: pointer; font-size: inherit;">[ X ] Quero um novo orçamento</button>
+                        <button type="submit" name="opcao" value="rejeitar" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit; font-weight:bold;">[ X ] Quero um novo orçamento</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <?php
+// Carrega o arquivo JSON a partir da pasta raiz (um nível acima de php/)
 $caminhoJson = __DIR__ . "/../orcamento.json";
 $orcamentos = [];
 
@@ -7,7 +8,7 @@ if (file_exists($caminhoJson)) {
     $orcamentos = json_decode($conteudoJson, true);
 }
 
-// Verifica se veio a posicao na URL
+// Pega o indice que veio da pagina cliente.php (?indice=)
 if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET["indice"]])) {
     $indice = $_GET["indice"];
     
@@ -18,7 +19,7 @@ if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET[
     $valor_orcamento = isset($orcamentos[$indice]["valor"]) ? $orcamentos[$indice]["valor"] : "";
 } else {
     $indice = "";
-    $cliente_nome = "Cliente Não Selecionado";
+    $cliente_nome = "Cliente não selecionado";
     $empresa_nome = "";
     $nome_projeto = "---";
     $prazo_entrega = "---";
@@ -70,9 +71,8 @@ if (isset($_GET["indice"]) && $_GET["indice"] !== "" && isset($orcamentos[$_GET[
             <p>Garantia técnica de 30 dias após a entrega para correção de falhas sem custo adicional.</p>
 
             <br>
-
-            <a href="enviar_assinaturas.php?indice=<?php echo $indice; ?>" style="background: #007bff; color: white; padding: 10px 15px; text-decoration: none;">Avançar para Assinatura do Contrato</a>
-        </div>
+           
+            
     </div>
 
 </body>
