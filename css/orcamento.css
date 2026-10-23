@@ -9,7 +9,8 @@ body{
     background-color: #1a1a20;
 }
 
-html {
+html
+{
     scroll-behavior: smooth;
 }
 
